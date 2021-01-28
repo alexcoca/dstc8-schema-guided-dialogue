@@ -193,10 +193,7 @@ if __name__ == '__main__':
 
     # print a random dialogue outline and its turns
     dialogue = all_dialogues[np.random.randint(0, high=len(all_dialogues))]
-    print_dialogue_outline(dialogue)
-    for dialogue in all_dialogues:
-        print(f"ID: {dialogue['dialogue_id']}")
-        print_dialogue(dialogue)
-        print("")
-        print_dialogue_outline(dialogue, text=True)
-        print("")
+    print_dialogue(dialogue)
+    print("")
+    print_dialogue_outline(dialogue, text=True)
+    print("")
