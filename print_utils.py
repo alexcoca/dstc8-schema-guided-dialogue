@@ -9,7 +9,8 @@ np.random.seed(0)
 
 def get_acts(turn: Dict, slots_and_vals: bool = False) -> List[str]:
     """
-    Retrieve acts from a given dialogue turn.
+    Retrieve acts or actions from a given dialogue turn. An action is a parametrised dialogue act
+    (e.g., INFORM(price=cheap)).
 
     Parameters
     ----------
@@ -74,11 +75,11 @@ def get_acts(turn: Dict, slots_and_vals: bool = False) -> List[str]:
 
     Returns
     -------
-    Acts in the current dialogue turn.
+    Acts or actions in the current dialogue turn.
     """
 
     if len(turn['frames']) > 1:
-        raise IndexError("Found a more than one frame per turn")
+        raise IndexError("Found a more than one frame per turn!")
 
     actions = turn['frames'][0]['actions']
     if slots_and_vals:
@@ -99,15 +100,15 @@ def get_acts(turn: Dict, slots_and_vals: bool = False) -> List[str]:
     return acts
 
 
-def print_acts(turn_acts: List[str]):
+def print_turn_outline(outline: List[str]):
     """
     Parameters
     ----------
-    turn_acts
+    outline
         Output of `get_acts`.
     """
 
-    print(*turn_acts, sep='\n')
+    print(*outline, sep='\n')
     print("")
 
 
@@ -181,7 +182,7 @@ def print_dialogue_outline(dialogue: Dict, text: bool = False):
     utterances = get_utterances(dialogue) if text else [''] * len(outlines)
     for i, (outline, utterance) in enumerate(zip(outlines, utterances)):
         print(f"Turn: {i}:{utterance}")
-        print_acts(outline)
+        print_turn_outline(outline)
 
 
 if __name__ == '__main__':
@@ -192,4 +193,10 @@ if __name__ == '__main__':
 
     # print a random dialogue outline and its turns
     dialogue = all_dialogues[np.random.randint(0, high=len(all_dialogues))]
-    print_dialogue_outline(dialogue, text=True)
+    print_dialogue_outline(dialogue)
+    for dialogue in all_dialogues:
+        print(f"ID: {dialogue['dialogue_id']}")
+        print_dialogue(dialogue)
+        print("")
+        print_dialogue_outline(dialogue, text=True)
+        print("")
