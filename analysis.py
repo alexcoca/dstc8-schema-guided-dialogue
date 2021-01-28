@@ -7,9 +7,9 @@ from typing import Dict, List
 np.random.seed(0)
 
 
-def get_acts(turn: Dict, slots_and_vals: bool = False) -> List[str]:
+def get_actions(turn: Dict) -> List[str]:
     """
-    Retrieve acts or actions from a given dialogue turn. An action is a parametrised dialogue act
+    Retrieve actions from a given dialogue turn. An action is a parametrised dialogue act
     (e.g., INFORM(price=cheap)).
 
     Parameters
@@ -69,22 +69,18 @@ def get_acts(turn: Dict, slots_and_vals: bool = False) -> List[str]:
             'requested_slots': [str], slots the user requested in the current turn
             'slot_values': Dict['str', List[str]], mapping of slots to values specified by USER up to current turn
             }
-    slots_and_vals
-        Whether to return actions (aka, parametrized acts such as ``INFORM('food'='mexican')`` or simply the act names
-        (e.g., ``INFORM``).
 
     Returns
     -------
-    Acts or actions in the current dialogue turn.
+    Actions in the current dialogue turn.
     """
 
     if len(turn['frames']) > 1:
         raise IndexError("Found a more than one frame per turn!")
 
     actions = turn['frames'][0]['actions']
-    if slots_and_vals:
-        acts = []
-        for d in actions:
+    actions = []
+    for d in actions:
             # acts without parameters (e.g., goodbye)
             slot = d['slot'] if d['slot'] else ''
             val = ''
@@ -92,11 +88,21 @@ def get_acts(turn: Dict, slots_and_vals: bool = False) -> List[str]:
                 val = ' '.join(d['values']) if d['values'] else ''
 
             if slot and val:
-                acts.append(f"{d['act']}({slot}={val})")
+                actions.append(f"{d['act']}({slot}={val})")
             else:
-                acts.append(f"{d['act']}({slot})")
-    else:
-        acts = [d['act'] for d in actions]
+                actions.append(f"{d['act']}({slot})")
+    return actions
+
+
+def get_acts(turn: Dict) -> List[str]:
+    """
+    Get the acts in a dialogue turn. See `get_actions` for input description.
+    """
+
+    if len(turn['frames']) > 1:
+        raise IndexError("Found a more than one frame per turn!")
+    actions = turn['frames'][0]['actions']
+    acts = [d['act'] for d in actions]
     return acts
 
 
@@ -105,7 +111,7 @@ def print_turn_outline(outline: List[str]):
     Parameters
     ----------
     outline
-        Output of `get_acts`.
+        Output of `get_actions`.
     """
 
     print(*outline, sep='\n')
@@ -152,7 +158,7 @@ def get_dialogue_outline(dialogue: Dict) -> List[List[str]]:
             {
             'dialogue_id': str,
             'services': [str, ...], services (or APIs) that comprise the dialogue,
-            'turns': [Dict[Literal['frames', 'speaker', 'utterance'], Any], ...], turns with annotations. See `get_acts`
+            'turns': [Dict[Literal['frames', 'speaker', 'utterance'], Any], ...], turns with annotations. See `get_actions`
                 function for the structure of each element of the list.
             }
 
@@ -164,8 +170,8 @@ def get_dialogue_outline(dialogue: Dict) -> List[List[str]]:
     """
     outline = []
     for i, turn in enumerate(dialogue['turns'], start=1):
-        acts = get_acts(turn, slots_and_vals=True)
-        outline.append(acts)
+        actions = get_actions(turn)
+        outline.append(actions)
     return outline
 
 
