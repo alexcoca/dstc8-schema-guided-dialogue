@@ -79,19 +79,19 @@ def get_actions(turn: Dict) -> List[str]:
         raise IndexError("Found a more than one frame per turn!")
 
     actions = turn['frames'][0]['actions']
-    actions = []
+    formated_actions = []
     for d in actions:
-            # acts without parameters (e.g., goodbye)
-            slot = d['slot'] if d['slot'] else ''
-            val = ''
-            if slot:
-                val = ' '.join(d['values']) if d['values'] else ''
+        # acts without parameters (e.g., goodbye)
+        slot = d['slot'] if d['slot'] else ''
+        val = ''
+        if slot:
+            val = ' '.join(d['values']) if d['values'] else ''
 
-            if slot and val:
-                actions.append(f"{d['act']}({slot}={val})")
-            else:
-                actions.append(f"{d['act']}({slot})")
-    return actions
+        if slot and val:
+            formated_actions.append(f"{d['act']}({slot}={val})")
+        else:
+            formated_actions.append(f"{d['act']}({slot})")
+    return formated_actions
 
 
 def get_acts(turn: Dict) -> List[str]:
@@ -199,7 +199,7 @@ if __name__ == '__main__':
 
     # print a random dialogue outline and its turns
     dialogue = all_dialogues[np.random.randint(0, high=len(all_dialogues))]
-    print_dialogue(dialogue)
-    print("")
+    # print_dialogue(dialogue)
+    # print("")
     print_dialogue_outline(dialogue, text=True)
     print("")
