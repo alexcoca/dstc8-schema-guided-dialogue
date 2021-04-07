@@ -190,8 +190,8 @@
         },
         "Calendar_1": {
             "GetAvailableTime": [
-                "available_start_time",
-                "available_end_time"
+                "available_end_time",
+                "available_start_time"
             ],
             "GetEvents": [
                 "event_name",
@@ -18423,10 +18423,10 @@
         "city",
         "cuisine",
         "date",
-        "destination_airport_name",
-        "destination_station_name",
-        "destination",
         "destination_airport",
+        "destination_airport_name",
+        "destination",
+        "destination_station_name",
         "directed_by",
         "director",
         "event_location",
@@ -18466,8 +18466,8 @@
         "phone_number",
         "price",
         "price_per_ticket",
-        "price_per_day",
         "price_per_night",
+        "price_per_day",
         "price_range",
         "rating",
         "refundable",
@@ -23855,5 +23855,5 @@
         "ShareLocation",
         "TransferMoney"
     ],
-    "VERSION": "da7ff25684c11c30fa8aee53c677ea4615c60145"
+    "VERSION": "53c0af31589ba0122f497989e24c671c6e6dc5f9"
 }

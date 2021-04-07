@@ -6,14 +6,16 @@ from collections import defaultdict
 from typing import Tuple, List, Dict, Optional, Set
 from typing_extensions import Literal
 
-import itertools
 import glob
+import itertools
 import json
+import os
 
 import numpy as np
 
 _SPLIT_NAMES = ['train', 'test', 'dev']
-_SCHEMA_PATHS = {split: f"{split}/schema.json" for split in _SPLIT_NAMES}
+dir = os.path.dirname(__file__)
+_SCHEMA_PATHS = {split: f"{dir}/{split}/schema.json" for split in _SPLIT_NAMES}
 
 
 def get_filename(dial_id: str) -> str:

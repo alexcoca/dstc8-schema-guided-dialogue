@@ -6,11 +6,14 @@ from typing import Dict, List, Set
 
 import collections
 import json
+import os
 import logging
 
+directory = os.path.dirname(__file__)
+metadata_path = os.path.join(directory, 'metadata.json')
 
 try:
-    with open('metadata.json', 'r') as f:
+    with open(metadata_path, 'r') as f:
         _metadata = json.load(f)  # type: dict
 except (FileNotFoundError, json.decoder.JSONDecodeError):
     logging.warning("No metadata file detected for corpus or metadata file corrupt.")
