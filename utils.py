@@ -1,3 +1,7 @@
+"""A module containing iterators for the SGD corpus and various key functions that can
+be used for sorting.
+"""
+
 from collections import defaultdict
 from typing import Tuple, List, Dict, Optional, Set
 from typing_extensions import Literal
