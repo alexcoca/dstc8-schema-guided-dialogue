@@ -127,9 +127,3 @@ def dial_sort_key(dialogue_id: str) -> Tuple[int, int]:
 
 def alphabetical_sort_key(name: str, n_chars: int = 10) ->  str:
     return name[:n_chars]
-
-
-
-if __name__ == '__main__':
-    test = random_sampler('train', 5)
-    print("")
