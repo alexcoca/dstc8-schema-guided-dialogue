@@ -293,7 +293,6 @@ def _get_entity_slots(split: Literal['train', 'test', 'dev']) -> Dict[str, Dict[
             ...
             }
     """
-    # TODO: TEST THIS
     # select only dialogues where the system speaks about an entity following a search call
     filtered_dialogues = filter_by_intent_type(split, transactional=True, search=True)
     search_only = filter_by_intent_type(split, transactional=False, search=True)
@@ -442,7 +441,6 @@ def get_dialogues_by_type(intents_mapping: dict) -> Dict[str, Dict[str, List[str
     return dialogues_by_type
 
 
-
 if __name__ == '__main__':
 
     # find intents for each split
@@ -477,11 +475,12 @@ if __name__ == '__main__':
         'BINARY_SLOTS_BY_SERVICE': binary_slots_by_service,
         'ENTITY_SLOTS': entity_slots,
         'SPLIT_NAMES': _SPLIT_NAMES,
-        # 'TRANSACTIONAL_DIALOGUES': transactional_dialogues,
-        # 'SEARCH_DIALOGUES': search_dialogues,
-        # 'MIXED_INTENT_DIALOGUES': mixed_intent_dialogues
+        'TRANSACTIONAL_DIALOGUES': transactional_dialogues,
+        'SEARCH_DIALOGUES': search_dialogues,
+        'MIXED_INTENT_DIALOGUES': mixed_intent_dialogues
     }
 
     with open('metadata.json', 'w') as f:
         json.dump(metadata, f, sort_keys=True, indent=4)
     print("")
+
