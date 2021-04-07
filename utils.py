@@ -40,7 +40,7 @@ def get_file_map(dialogue_ids: List, split: Literal['train', 'test', 'dev']) -> 
     return file_map
 
 
-def file_iterator(filename: str, return_only : Optional[Set[str]] = None) -> Tuple[str, dict]:
+def file_iterator(filename: str, return_only: Optional[Set[str]] = None) -> Tuple[str, dict]:
 
     with open(filename, 'r') as f:
         dial_bunch = json.load(f)
@@ -66,7 +66,7 @@ def file_iterator(filename: str, return_only : Optional[Set[str]] = None) -> Tup
         raise NotImplementedError
 
 
-def split_iterator(split: Literal['train', 'test', 'dev'], return_only : Optional[Set[str]] = None) -> Tuple[str, Dict]:
+def split_iterator(split: Literal['train', 'test', 'dev'], return_only: Optional[Set[str]] = None) -> Tuple[str, Dict]:
 
     # return specified dialogues only
     if return_only:
@@ -80,6 +80,7 @@ def split_iterator(split: Literal['train', 'test', 'dev'], return_only : Optiona
                 dial_bunch = json.load(f)
             for dial in dial_bunch:
                 yield fp, dial
+
 
 def corpus_iterator():
 
@@ -100,12 +101,14 @@ def dialogue_iterator(dialogue: dict, user: bool = True, system: bool = True):
         else:
             yield turn
 
+
 def schema_iterator(split: Literal['train', 'test', 'dev']) -> dict:
 
     with open(_SCHEMA_PATHS[split], 'r') as f:
         schema = json.load(f)
     for service in schema:
         yield service
+
 
 def random_sampler(split: Literal['train', 'test', 'dev'], n_samples: int):
 
@@ -125,5 +128,6 @@ def dial_sort_key(dialogue_id: str) -> Tuple[int, int]:
     s1, s2 = dialogue_id.split("_")
     return int(s1), int(s2)
 
-def alphabetical_sort_key(name: str, n_chars: int = 10) ->  str:
+
+def alphabetical_sort_key(name: str, n_chars: int = 10) -> str:
     return name[:n_chars]

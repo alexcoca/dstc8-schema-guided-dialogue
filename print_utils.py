@@ -7,7 +7,6 @@ import numpy as np
 np.random.seed(0)
 
 
-
 def get_utterances(dialogue: Dict) -> List[str]:
     """
     Retrieves all utterances from a dialogue.
@@ -147,8 +146,8 @@ def get_dialogue_outline(dialogue: Dict) -> List[List[str]]:
             {
             'dialogue_id': str,
             'services': [str, ...], services (or APIs) that comprise the dialogue,
-            'turns': [Dict[Literal['frames', 'speaker', 'utterance'], Any], ...], turns with annotations. See `get_actions`
-                function for the structure of each element of the list.
+            'turns': [Dict[Literal['frames', 'speaker', 'utterance'], Any], ...], turns with annotations. See
+            `get_actions` function for the structure of each element of the list.
             }
 
     Returns
@@ -178,6 +177,7 @@ def print_dialogue_outline(dialogue: Dict, text: bool = False):
     for i, (outline, utterance) in enumerate(zip(outlines, utterances)):
         print(f"Turn: {i}:{utterance}")
         print_turn_outline(outline)
+
 
 if __name__ == '__main__':
     file = 'train/dialogues_001.json'

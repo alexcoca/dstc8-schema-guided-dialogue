@@ -4,6 +4,7 @@ import random
 
 SPLIT_NAMES = ['train', 'dev', 'test']
 
+
 def count_intents():
 
     intents = set()
@@ -13,6 +14,7 @@ def count_intents():
                 intents.add(intent_dict['name'])
 
     return len(intents)
+
 
 def get_random_split():
     return random.choice(SPLIT_NAMES)

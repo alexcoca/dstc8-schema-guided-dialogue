@@ -22,6 +22,7 @@ def test_get_schema_intents(splits):
         intents = get_schema_intents(split)
         assert not intents['search'].intersection(intents['transactional'])
 
+
 def test_get_intents_by_type():
 
     intents = get_intents_by_type()
@@ -31,8 +32,11 @@ def test_get_intents_by_type():
 
     assert N_INTENTS == len(intents['transactional']) + len(intents['search'])
 
+
 # number of dialogues to sample randomly from a randomly chosen split
 n_dialogues = 100
+
+
 @pytest.mark.parametrize('transactional', [True, False], ids='transactional={}'.format)
 @pytest.mark.parametrize('search', [True, False], ids='search={}'.format)
 @pytest.mark.parametrize('n_dialogues', [n_dialogues, ], ids='n_dialogues={}'.format)
@@ -74,6 +78,8 @@ def test_filter_by_intent_types(transactional, search, n_dialogues, split):
 
 # number of dialogues to sample randomly from a randomly chosen split
 n_dialogues = 1000
+
+
 @pytest.mark.parametrize('n_dialogues', [n_dialogues, ], ids='n_dialogues={}'.format)
 @pytest.mark.parametrize('split', [get_random_split(), ], ids='split={}'.format)
 @pytest.mark.parametrize('trials', [4, ], ids='trials={}'.format)
@@ -95,4 +101,3 @@ def test_get_entity_slots_map(n_dialogues, split, trials):
                             expected = expected_output[frame['service']][intent]
                             actual = set(slot_dict['slot'] for slot_dict in frame['slots'])
                             assert not expected - actual
-

@@ -18,6 +18,7 @@ import subprocess
 
 _SPLIT_NAMES = ['train', 'dev', 'test']
 
+
 def cast_vals_to_sorted_list(d: dict, sort_by: Optional[Callable] = None) -> dict:
     """Casts the values of a nested dict to sorted lists.
 
@@ -35,9 +36,11 @@ def cast_vals_to_sorted_list(d: dict, sort_by: Optional[Callable] = None) -> dic
 
     return d
 
+
 def get_commit_hash():
     """Returns the commit hash for the current HEAD."""
     return subprocess.check_output(["git", "rev-parse", "HEAD"]).strip().decode()
+
 
 def get_schema_intents(split: Literal['train', 'test', 'dev']) -> Dict[str, Set[str]]:
     """Returns a mapping of intent type (transactional/search) to a set of intents for
@@ -64,6 +67,7 @@ def get_schema_intents(split: Literal['train', 'test', 'dev']) -> Dict[str, Set[
 
     return intents
 
+
 def get_intents_by_split() -> Dict[str, List[str]]:
     """Returns a mapping from split names to the intents in that split.
     """
@@ -87,7 +91,7 @@ def get_intents_by_type() -> Dict[str, List[str]]:
     -------
     all_intents
         A dictionary containing sorted lists of transactional and search intents as value sets.
-    """ #noqa
+    """  # noqa
     transactional_intents = set()
     search_intents = set()
     for split in _SPLIT_NAMES:
@@ -104,6 +108,7 @@ def get_intents_by_type() -> Dict[str, List[str]]:
     }
 
     return all_intents
+
 
 def get_dialogue_intents(dialogue: Dict, exclude_none: bool = True) -> Set[str]:
     """Returns the list of intents in a dialogue.
@@ -135,6 +140,7 @@ def get_dialogue_intents(dialogue: Dict, exclude_none: bool = True) -> Set[str]:
 
     return intents
 
+
 def _get_requestables(dialogue: dict) -> Set[str]:
     """Get requestable slots in a given dialogue.
 
@@ -156,6 +162,7 @@ def _get_requestables(dialogue: dict) -> Set[str]:
                 requestables.update(reqs)
     return requestables
 
+
 def get_requestable_slots() -> List[str]:
     """Return a list of all the slots requested by the user across the entire corpus.
     These slots are specified under the ``['state']['requestables']``
@@ -170,6 +177,7 @@ def get_requestable_slots() -> List[str]:
         all_requestables.update(_get_requestables(dialogue))
 
     return sorted(list(all_requestables), key=alphabetical_sort_key)
+
 
 def _find_service_binary_slots(service: dict) -> dict:
     """Find categorical slots with binary values (i.e., True/False, 0/1) for a given schema.
@@ -194,7 +202,6 @@ def _find_service_binary_slots(service: dict) -> dict:
                 condition_2 = values[0].isdigit() and int(values[0]) <= 1
                 if condition_1 or condition_2:
                     binary_slots[service_name].add(slot['name'])
-
 
     return binary_slots
 
@@ -221,6 +228,7 @@ def get_binary_slots() -> Tuple[List[str], Dict[str, List[str]]]:
     binary_slots.sort(key=alphabetical_sort_key)
 
     return binary_slots, cast_vals_to_sorted_list(service_binary_slots)
+
 
 def filter_by_intent_type(split: Literal['train', 'test', 'dev'],
                           transactional: bool = True,
@@ -273,6 +281,7 @@ def filter_by_intent_type(split: Literal['train', 'test', 'dev'],
 
     return dialogue_ids
 
+
 def _get_entity_slots(split: Literal['train', 'test', 'dev']) -> Dict[str, Dict[str, Set[str]]]:
     """Find the slots that are always specified by the system when a call to a "search" intent
     is made (referred to as "entity" slots).
@@ -304,7 +313,7 @@ def _get_entity_slots(split: Literal['train', 'test', 'dev']) -> Dict[str, Dict[
 
     # iterate through selected dialogues to find slots that are always specified after a
     # call to a given intent ("entity slot").
-    entity_slots = defaultdict(lambda : collections.defaultdict(set))
+    entity_slots = defaultdict(lambda: collections.defaultdict(set))
     search_intents = set(get_intents_by_type()['search'])
     for file in filtered_dialogues.keys():
         for fp, dial in file_iterator(file, return_only=filtered_dialogues[file]):
@@ -384,7 +393,7 @@ def _map_intents_to_services() -> Dict[str, Dict[str, List[str]]]:
                 `intent_2': ['Service_1', 'Service_2']
             }
     """
-    intents_to_services = defaultdict(lambda : defaultdict(list))
+    intents_to_services = defaultdict(lambda: defaultdict(list))
     for split in _SPLIT_NAMES:
         for service in schema_iterator(split):
             for intent in service["intents"]:
@@ -393,6 +402,7 @@ def _map_intents_to_services() -> Dict[str, Dict[str, List[str]]]:
                     service['service_name'])
 
     return intents_to_services
+
 
 def get_dialogues_by_type(intents_mapping: dict) -> Dict[str, Dict[str, List[str]]]:
     """Returns a mapping from dialogue type (transactional intent only, search intent only,
@@ -410,8 +420,7 @@ def get_dialogues_by_type(intents_mapping: dict) -> Dict[str, Dict[str, List[str
             }
     """
 
-
-    dialogues_by_type = collections.defaultdict( lambda : collections.defaultdict(list))
+    dialogues_by_type = collections.defaultdict(lambda: collections.defaultdict(list))
 
     for split in _SPLIT_NAMES:
         for _, dial in split_iterator(split):
@@ -436,7 +445,6 @@ def get_dialogues_by_type(intents_mapping: dict) -> Dict[str, Dict[str, List[str
 
         for intent_type in dialogues_by_type:
             dialogues_by_type[split][intent_type].sort(key=dial_sort_key)
-
 
     return dialogues_by_type
 
@@ -483,4 +491,3 @@ if __name__ == '__main__':
     with open('metadata.json', 'w') as f:
         json.dump(metadata, f, sort_keys=True, indent=4)
     print("")
-
