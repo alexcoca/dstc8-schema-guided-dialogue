@@ -2,8 +2,11 @@ from collections import defaultdict
 from typing import Tuple, List, Dict, Optional, Set
 from typing_extensions import Literal
 
+import itertools
 import glob
 import json
+
+import numpy as np
 
 _SPLIT_NAMES = ['train', 'test', 'dev']
 _SCHEMA_PATHS = {split: f"{split}/schema.json" for split in _SPLIT_NAMES}
@@ -104,9 +107,29 @@ def schema_iterator(split: Literal['train', 'test', 'dev']) -> dict:
     for service in schema:
         yield service
 
+def random_sampler(split: Literal['train', 'test', 'dev'], n_samples: int):
+
+    iterator = split_iterator(split)
+    reservoir = list(itertools.islice(iterator, n_samples))
+
+    for idx, elem in enumerate(iterator, n_samples + 1):
+        i = np.random.randint(1, idx + 1)
+
+        if i <= n_samples:
+            reservoir[i - 1] = elem
+
+    return reservoir
+
+
 def dial_sort_key(dialogue_id: str) -> Tuple[int, int]:
     s1, s2 = dialogue_id.split("_")
     return int(s1), int(s2)
 
 def alphabetical_sort_key(name: str, n_chars: int = 10) ->  str:
     return name[:n_chars]
+
+
+
+if __name__ == '__main__':
+    test = random_sampler('train', 5)
+    print("")
