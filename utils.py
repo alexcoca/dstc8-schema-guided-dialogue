@@ -18,7 +18,7 @@ dir = os.path.dirname(__file__)
 _SCHEMA_PATHS = {split: f"{dir}/{split}/schema.json" for split in _SPLIT_NAMES}
 
 
-def get_filename(dial_id: str) -> str:
+def reconstruct_filename(dial_id: str) -> str:
     """Reconstruct filename from dialogue ID."""
 
     file_prefix = int(dial_id.split("_")[0])
@@ -41,9 +41,15 @@ def get_file_map(dialogue_ids: List, split: Literal['train', 'test', 'dev']) -> 
     file_map = defaultdict(list)
 
     for id in dialogue_ids:
-        file_map[f"{split}/{get_filename(id)}"].append(id)
+        file_map[f"{split}/{reconstruct_filename(id)}"].append(id)
 
     return file_map
+
+
+def get_filenames(split: Literal['train', 'test', 'dev']) -> List[str]:
+    """Returns a list of filenames in a given split.
+    """
+    return glob.glob(f"{split}/dialogues*.json")
 
 
 def file_iterator(filename: str, return_only: Optional[Set[str]] = None) -> Tuple[str, dict]:
@@ -69,8 +75,8 @@ def file_iterator(filename: str, return_only: Optional[Set[str]] = None) -> Tupl
                         break
 
     else:
-        raise NotImplementedError
-
+        for dial in dial_bunch:
+            yield filename, dial
 
 def split_iterator(split: Literal['train', 'test', 'dev'], return_only: Optional[Set[str]] = None) -> Tuple[str, Dict]:
 
@@ -81,7 +87,7 @@ def split_iterator(split: Literal['train', 'test', 'dev'], return_only: Optional
             yield from file_iterator(filename, return_only=set(dial_ids))
     # iterate through all dialogues
     else:
-        for fp in glob.glob(f"{split}/dialogues*.json"):
+        for fp in get_filenames(split):
             with open(fp, 'r') as f:
                 dial_bunch = json.load(f)
             for dial in dial_bunch:
@@ -107,6 +113,17 @@ def dialogue_iterator(dialogue: dict, user: bool = True, system: bool = True):
         else:
             yield turn
 
+def actions_iterator(frame: dict, exclude_acts: Optional[List[str]] = None):
+
+    for act_dict in frame['actions']:
+        if exclude_acts:
+            if act_dict['act'] in exclude_acts:
+                continue
+            else:
+                yield act_dict
+        else:
+            yield act_dict
+
 
 def schema_iterator(split: Literal['train', 'test', 'dev']) -> dict:
 
@@ -114,6 +131,9 @@ def schema_iterator(split: Literal['train', 'test', 'dev']) -> dict:
         schema = json.load(f)
     for service in schema:
         yield service
+
+def service_iterator(split: Literal['train', 'test', 'dev']) -> dict:
+    raise NotImplementedError
 
 
 def random_sampler(split: Literal['train', 'test', 'dev'], n_samples: int):
@@ -137,3 +157,6 @@ def dial_sort_key(dialogue_id: str) -> Tuple[int, int]:
 
 def alphabetical_sort_key(name: str, n_chars: int = 10) -> str:
     return name[:n_chars]
+
+def dial_files_sort_key(name: str) -> int:
+     return int(name.split("_")[1].split(".")[0])
