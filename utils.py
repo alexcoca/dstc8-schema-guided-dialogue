@@ -14,8 +14,8 @@ import os
 import numpy as np
 
 _SPLIT_NAMES = ['train', 'test', 'dev']
-dir = os.path.dirname(__file__)
-_SCHEMA_PATHS = {split: f"{dir}/{split}/schema.json" for split in _SPLIT_NAMES}
+directory = os.path.dirname(__file__)
+_SCHEMA_PATHS = {split: f"{directory}/{split}/schema.json" for split in _SPLIT_NAMES}
 
 
 def reconstruct_filename(dial_id: str) -> str:
@@ -41,7 +41,7 @@ def get_file_map(dialogue_ids: List, split: Literal['train', 'test', 'dev']) -> 
     file_map = defaultdict(list)
 
     for id in dialogue_ids:
-        file_map[f"{split}/{reconstruct_filename(id)}"].append(id)
+        file_map[f"{directory}/{split}/{reconstruct_filename(id)}"].append(id)
 
     return file_map
 
@@ -49,7 +49,7 @@ def get_file_map(dialogue_ids: List, split: Literal['train', 'test', 'dev']) -> 
 def get_filenames(split: Literal['train', 'test', 'dev']) -> List[str]:
     """Returns a list of filenames in a given split.
     """
-    return glob.glob(f"{split}/dialogues*.json")
+    return glob.glob(f"{directory}/{split}/dialogues*.json")
 
 
 def file_iterator(filename: str, return_only: Optional[Set[str]] = None) -> Tuple[str, dict]:
