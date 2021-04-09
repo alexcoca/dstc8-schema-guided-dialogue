@@ -28,7 +28,6 @@ def cast_vals_to_set(d: dict) -> dict:
             cast_vals_to_set(value)
         else:
             d[key] = set(value)
-
     return d
 
 
@@ -42,9 +41,18 @@ SPLIT_NAMES = ['train', 'dev', 'test']
 cross splits or the entire corpus.
 """  # type: List[str]
 
+SCHEMA_PATHS = {split: f"{directory}/{split}/schema.json" for split in SPLIT_NAMES}
 """Mapping with paths to the schema .json files, for each split. See metadata.SPLIT_NAMES
 for key values.
 """  # type: Dict[str, str]
+
+SERVICES_TO_FILES = _metadata['SERVICES_TO_FILES']
+"""Nested mapping with files where different services can be found::
+    
+    {
+    'split_name': {'service_name': List[str], of filenames }
+    }
+"""  # type: Dict[str, Dict[str, List[str]]]
 
 ALL_INTENTS = set(_metadata['ALL_INTENTS']) if _metadata['ALL_INTENTS'] else set()
 """Set of all the intents in the corpus.
@@ -89,6 +97,16 @@ BINARY_SLOTS_BY_SERVICE = cast_vals_to_set(_binary_by_service) if _binary_by_ser
 """Mapping of service names to binary slots. The union of all the values yields `BINARY_SLOTS`
 """  # type: Dict[str, Set[str]]
 
+CATEGORICAL_SLOTS = set(_metadata['CATEGORICAL_SLOTS']) if _metadata['CATEGORICAL_SLOTS'] else set()
+"""Set of slots which take a finite number of values.
+"""  # type: Set[str]
+
+_categorical_by_service = _metadata['CATEGORICAL_SLOTS_BY_SERVICE']
+CATEGORICAL_SLOTS_BY_SERVICE = cast_vals_to_set(_categorical_by_service) if _categorical_by_service else {}
+"""
+Mapping of service names to categorical slots. 
+"""  # type: Dict[str, Set[str]]
+
 ENTITY_SLOTS = cast_vals_to_set(_metadata['ENTITY_SLOTS']) if _metadata['ENTITY_SLOTS'] else {}
 """Mapping with slots mentioned by the system when a successful call is made to a search/query intent. Format is::
 
@@ -109,4 +127,9 @@ SEARCH_DIALOGUES = cast_vals_to_set(_metadata['SEARCH_DIALOGUES']) if _metadata[
 _mixed_intent_dialogues = _metadata['MIXED_INTENT_DIALOGUES']
 MIXED_INTENT_DIALOGUES = cast_vals_to_set(_mixed_intent_dialogues) if _mixed_intent_dialogues else {}
 """Mapping of split names to dialogue ids of dialogues that are comprised only of search intents.
+"""  # type: Dict[str, Set[str]]
+
+_multiple_service_dialogues = _metadata['MULTIPLE_SERVICES_DIALOGUES']
+MULTIPLE_SERVICES_DIALOGUES = cast_vals_to_set(_multiple_service_dialogues) if _multiple_service_dialogues else {}
+"""Mapping of split names to dialogue ids of dialogues that have multiple services.
 """  # type: Dict[str, Set[str]]
