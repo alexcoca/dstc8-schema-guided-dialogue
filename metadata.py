@@ -107,7 +107,7 @@ CATEGORICAL_SLOTS_BY_SERVICE = cast_vals_to_set(_categorical_by_service) if _cat
 Mapping of service names to categorical slots. 
 """  # type: Dict[str, Set[str]]
 
-ENTITY_SLOTS = cast_vals_to_set(_metadata['ENTITY_SLOTS']) if _metadata['ENTITY_SLOTS'] else {}
+ENTITY_SLOTS_BY_SERVICE = cast_vals_to_set(_metadata['ENTITY_SLOTS']) if _metadata['ENTITY_SLOTS'] else {}
 """Mapping with slots mentioned by the system when a successful call is made to a search/query intent. Format is::
 
     {

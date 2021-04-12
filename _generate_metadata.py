@@ -580,6 +580,7 @@ def get_multiple_services_dialogues() -> Dict[str, List[str]]:
 
     return multi_service
 
+
 if __name__ == '__main__':
 
     # find transactional and search/query intents in the corpus
@@ -615,7 +616,7 @@ if __name__ == '__main__':
         'BINARY_SLOTS_BY_SERVICE': binary_slots_by_service,
         'CATEGORICAL_SLOTS': categorical_slots,
         'CATEGORICAL_SLOTS_BY_SERVICE': categorical_slots_by_service,
-        'ENTITY_SLOTS': entity_slots,
+        'ENTITY_SLOTS_BY_SERVICE': entity_slots,
         'SPLIT_NAMES': _SPLIT_NAMES,
         'TRANSACTIONAL_DIALOGUES': transactional_dialogues,
         'SEARCH_DIALOGUES': search_dialogues,
