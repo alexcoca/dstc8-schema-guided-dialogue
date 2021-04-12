@@ -154,40 +154,40 @@
         ]
     },
     "CATEGORICAL_SLOTS": [
-        "star_rating",
-        "number_of_riders",
-        "number_of_beds",
         "group_size",
-        "airlines",
-        "number_checked_bags",
-        "category",
-        "fare_type",
-        "show_type",
-        "car_type",
-        "ride_type",
-        "flight_class",
-        "event_type",
-        "number_of_tickets",
-        "class",
-        "travelers",
-        "number_of_baths",
         "intent",
-        "account_type",
-        "seating_class",
-        "party_size",
-        "price_range",
-        "num_passengers",
-        "number_of_seats",
-        "payment_method",
-        "subtitle_language",
-        "device",
-        "playback_device",
-        "number_of_adults",
-        "year",
-        "passengers",
+        "car_type",
         "type",
+        "num_passengers",
+        "payment_method",
         "number_of_rooms",
-        "recipient_account_type"
+        "year",
+        "seating_class",
+        "event_type",
+        "show_type",
+        "number_checked_bags",
+        "number_of_seats",
+        "number_of_beds",
+        "recipient_account_type",
+        "star_rating",
+        "number_of_adults",
+        "number_of_riders",
+        "playback_device",
+        "price_range",
+        "number_of_baths",
+        "category",
+        "passengers",
+        "number_of_tickets",
+        "device",
+        "travelers",
+        "class",
+        "party_size",
+        "subtitle_language",
+        "account_type",
+        "flight_class",
+        "airlines",
+        "ride_type",
+        "fare_type"
     ],
     "CATEGORICAL_SLOTS_BY_SERVICE": {
         "Alarm_1": {},
@@ -690,7 +690,7 @@
         },
         "Weather_1": {}
     },
-    "ENTITY_SLOTS": {
+    "ENTITY_SLOTS_BY_SERVICE": {
         "Alarm_1": {
             "GetAlarms": [
                 "alarm_name",
@@ -727,8 +727,8 @@
         },
         "Calendar_1": {
             "GetAvailableTime": [
-                "available_start_time",
-                "available_end_time"
+                "available_end_time",
+                "available_start_time"
             ],
             "GetEvents": [
                 "event_name",
@@ -41793,10 +41793,10 @@
         "city",
         "cuisine",
         "date",
-        "destination",
         "destination_station_name",
-        "destination_airport_name",
         "destination_airport",
+        "destination",
+        "destination_airport_name",
         "directed_by",
         "director",
         "event_location",
@@ -41820,9 +41820,9 @@
         "is_unisex",
         "location",
         "number_checked_bags",
+        "number_of_baths",
         "number_of_beds",
         "number_of_tickets",
-        "number_of_baths",
         "number_stops",
         "offers_cosmetic_services",
         "origin_airport_name",
@@ -41835,9 +41835,9 @@
         "pets_welcome",
         "phone_number",
         "price",
-        "price_per_day",
-        "price_per_night",
         "price_per_ticket",
+        "price_per_night",
+        "price_per_day",
         "price_range",
         "rating",
         "refundable",
@@ -48152,5 +48152,5 @@
         "ShareLocation",
         "TransferMoney"
     ],
-    "VERSION": "4b2377d40c6d759c29fc25967224265b3789aa0c"
+    "VERSION": "763a9a443a4d350d5150c541cb4690f1d5870e36"
 }
