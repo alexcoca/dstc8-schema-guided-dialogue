@@ -193,6 +193,8 @@ def _find_service_binary_slots(service: dict) -> dict:
     -------
     binary_slots
         A dictionary mapping the names of the binary slots to their values.
+
+    # TODO: LOOK INTO 0/1 VAL CASES AND SEE IF THESE ARE ACTUALLY DELEX (transfers slot is, for example)
     """
 
     binary_slots = collections.defaultdict(set)
@@ -204,6 +206,11 @@ def _find_service_binary_slots(service: dict) -> dict:
                 condition_2 = values[0].isdigit() and int(values[0]) <= 1
                 if condition_1 or condition_2:
                     binary_slots[service_name].add(slot['name'])
+
+    # add an empty set for the services that do not have binary slots
+    # to ensure consistency between CATEGORICAL_SLOTS_BY_SERVICE and BINARY_SLOTS_BY SERVICE
+    if not binary_slots:
+        binary_slots[service_name] = set()
 
     return binary_slots
 
@@ -356,7 +363,7 @@ def _get_entity_slots(split: Literal['train', 'test', 'dev']) -> Dict[str, Dict[
 
     Returns
     -------
-    entity_slots
+    entity_slots_map
         A mapping of the form::
 
             {
@@ -364,6 +371,7 @@ def _get_entity_slots(split: Literal['train', 'test', 'dev']) -> Dict[str, Dict[
                          {'intent_1': {'slot_name',...}
             ...
             }
+
     """
     # select only dialogues where the system speaks about an entity following a search call
     filtered_dialogues = filter_by_intent_type(split, transactional=True, search=True)
@@ -376,25 +384,25 @@ def _get_entity_slots(split: Literal['train', 'test', 'dev']) -> Dict[str, Dict[
 
     # iterate through selected dialogues to find slots that are always specified after a
     # call to a given intent ("entity slot").
-    entity_slots = defaultdict(lambda: collections.defaultdict(set))
+    entity_slots_map = defaultdict(lambda: collections.defaultdict(set))
     search_intents = set(get_intents_by_type()['search'])
     for file in filtered_dialogues.keys():
         for fp, dial in file_iterator(file, return_only=filtered_dialogues[file]):
-            for turn in dial["turns"]:
-                if turn['speaker'] == 'USER':
-                    continue
+            for turn in dialogue_iterator(dial, user=False, system=True):
                 if 'service_call' in (frame := turn['frames'][0]):
                     service = frame['service']
                     intent = frame['service_call']['method']
                     service_results = frame['service_results']
                     if intent in search_intents and service_results:
                         mentioned_slots = {entry['slot'] for entry in frame['slots']}
-                        if intent in entity_slots[service]:
-                            entity_slots[service][intent] = entity_slots[service][intent].intersection(mentioned_slots)
+                        if intent in entity_slots_map[service]:
+                            entity_slots_map[service][intent] = \
+                                entity_slots_map[service][intent].intersection(mentioned_slots)
                         else:
-                            entity_slots[service][intent] = mentioned_slots
+                            entity_slots_map[service][intent] = mentioned_slots
 
-    return entity_slots
+
+    return entity_slots_map
 
 
 def get_entity_slots_map() -> Dict[str, Dict[str, Set[str]]]:
