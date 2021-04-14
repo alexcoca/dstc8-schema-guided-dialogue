@@ -78,12 +78,20 @@
         "trip_protection"
     ],
     "BINARY_SLOTS_BY_SERVICE": {
+        "Alarm_1": [],
+        "Banks_1": [],
+        "Banks_2": [],
         "Buses_1": [
             "transfers"
         ],
+        "Buses_2": [],
         "Buses_3": [
             "additional_luggage"
         ],
+        "Calendar_1": [],
+        "Events_1": [],
+        "Events_2": [],
+        "Events_3": [],
         "Flights_1": [
             "number_stops",
             "refundable"
@@ -122,9 +130,20 @@
         "Media_1": [
             "subtitles"
         ],
+        "Media_2": [],
+        "Media_3": [],
+        "Messaging_1": [],
+        "Movies_1": [],
+        "Movies_2": [],
+        "Movies_3": [],
+        "Music_1": [],
+        "Music_2": [],
+        "Music_3": [],
         "Payment_1": [
             "private_visibility"
         ],
+        "RentalCars_1": [],
+        "RentalCars_2": [],
         "RentalCars_3": [
             "add_insurance"
         ],
@@ -139,55 +158,59 @@
         "RideSharing_1": [
             "shared_ride"
         ],
+        "RideSharing_2": [],
         "Services_1": [
             "is_unisex"
         ],
         "Services_2": [
             "offers_cosmetic_services"
         ],
+        "Services_3": [],
+        "Services_4": [],
         "Trains_1": [
             "trip_protection"
         ],
         "Travel_1": [
             "free_entry",
             "good_for_kids"
-        ]
+        ],
+        "Weather_1": []
     },
     "CATEGORICAL_SLOTS": [
-        "group_size",
-        "intent",
-        "car_type",
-        "type",
-        "num_passengers",
-        "payment_method",
-        "number_of_rooms",
-        "year",
-        "seating_class",
-        "event_type",
-        "show_type",
-        "number_checked_bags",
-        "number_of_seats",
-        "number_of_beds",
-        "recipient_account_type",
-        "star_rating",
-        "number_of_adults",
-        "number_of_riders",
-        "playback_device",
-        "price_range",
-        "number_of_baths",
-        "category",
-        "passengers",
-        "number_of_tickets",
-        "device",
-        "travelers",
         "class",
         "party_size",
-        "subtitle_language",
-        "account_type",
+        "show_type",
+        "type",
+        "number_of_rooms",
+        "car_type",
+        "recipient_account_type",
         "flight_class",
-        "airlines",
+        "passengers",
+        "travelers",
+        "account_type",
+        "event_type",
+        "seating_class",
+        "number_of_seats",
+        "fare_type",
+        "year",
+        "number_of_tickets",
+        "device",
+        "number_of_beds",
+        "group_size",
+        "number_of_riders",
+        "payment_method",
         "ride_type",
-        "fare_type"
+        "playback_device",
+        "star_rating",
+        "price_range",
+        "subtitle_language",
+        "category",
+        "number_of_adults",
+        "airlines",
+        "number_checked_bags",
+        "num_passengers",
+        "intent",
+        "number_of_baths"
     ],
     "CATEGORICAL_SLOTS_BY_SERVICE": {
         "Alarm_1": {},
@@ -41793,10 +41816,10 @@
         "city",
         "cuisine",
         "date",
-        "destination_station_name",
-        "destination_airport",
-        "destination",
         "destination_airport_name",
+        "destination_station_name",
+        "destination",
+        "destination_airport",
         "directed_by",
         "director",
         "event_location",
@@ -41820,13 +41843,13 @@
         "is_unisex",
         "location",
         "number_checked_bags",
-        "number_of_baths",
         "number_of_beds",
         "number_of_tickets",
+        "number_of_baths",
         "number_stops",
         "offers_cosmetic_services",
-        "origin_airport_name",
         "origin_airport",
+        "origin_airport_name",
         "origin_station_name",
         "outbound_arrival_time",
         "outbound_departure_time",
@@ -41835,9 +41858,9 @@
         "pets_welcome",
         "phone_number",
         "price",
-        "price_per_ticket",
-        "price_per_night",
         "price_per_day",
+        "price_per_night",
+        "price_per_ticket",
         "price_range",
         "rating",
         "refundable",
@@ -48152,5 +48175,5 @@
         "ShareLocation",
         "TransferMoney"
     ],
-    "VERSION": "763a9a443a4d350d5150c541cb4690f1d5870e36"
+    "VERSION": "be5e5e27bfaee290394a1b4f5edd5c5f71ec9adf"
 }
