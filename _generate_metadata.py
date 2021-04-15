@@ -21,6 +21,7 @@ import subprocess
 
 _SPLIT_NAMES = ['train', 'dev', 'test']  # type: List[Literal['train'], Literal['dev'], Literal['test'] ]
 
+
 def cast_vals_to_sorted_list(d: dict, sort_by: Optional[Callable] = None) -> dict:
     """Casts the values of a nested dict to sorted lists.
 
@@ -238,6 +239,7 @@ def get_binary_slots() -> Tuple[List[str], Dict[str, List[str]]]:
 
     return binary_slots, cast_vals_to_sorted_list(service_binary_slots)
 
+
 def _get_service_categorical_slots(service: dict, binary_slots: List[str]) -> Dict[str, List[str]]:
     """Returns  the categorical slots in `service`. Binary slots with values `True`/`False`
     are not considered as categorical slots.
@@ -256,6 +258,7 @@ def _get_service_categorical_slots(service: dict, binary_slots: List[str]) -> Di
             cat_slots[slot_name].extend(values)
 
     return cat_slots
+
 
 def get_categorical_slots(binary_slots_by_service: Dict[str, List[str]]) -> \
         Tuple[List[str], Dict[str, Dict[str, List[str]]]]:
@@ -292,13 +295,14 @@ def get_categorical_slots(binary_slots_by_service: Dict[str, List[str]]) -> \
             service_cat_slots = _get_service_categorical_slots(service, binary_slots)
             all_cat_slots.update(list(service_cat_slots.keys()))
             if service_name in cat_slots_by_service:
-                for slot_name, values  in cat_slots_by_service[service_name].items():
+                for slot_name, values in cat_slots_by_service[service_name].items():
                     assert slot_name in service_cat_slots
                     assert values == service_cat_slots[slot_name]
             else:
                 cat_slots_by_service[service_name] = service_cat_slots
 
     return list(all_cat_slots), cat_slots_by_service
+
 
 def filter_by_intent_type(split: Literal['train', 'test', 'dev'],
                           transactional: bool = True,
@@ -400,8 +404,6 @@ def _get_entity_slots(split: Literal['train', 'test', 'dev']) -> Dict[str, Dict[
                                 entity_slots_map[service][intent].intersection(mentioned_slots)
                         else:
                             entity_slots_map[service][intent] = mentioned_slots
-
-
     return entity_slots_map
 
 
@@ -558,7 +560,7 @@ def get_service_to_file_map() -> Dict[str, Dict[str, List[str]]]:
     splits_to_services_files = collections.defaultdict(lambda: collections.defaultdict(set))
     for split in _SPLIT_NAMES:
         services = get_services(split)
-        for service in  services:
+        for service in services:
             splits_to_services_files[split][service] = set(split_to_files[split])
         for file in split_to_files[split]:
             this_file_services = get_file_services(file)
@@ -567,6 +569,7 @@ def get_service_to_file_map() -> Dict[str, Dict[str, List[str]]]:
                 splits_to_services_files[split][entry].remove(file)
 
     return cast_vals_to_sorted_list(splits_to_services_files, sort_by=dial_files_sort_key)
+
 
 def get_multiple_services_dialogues() -> Dict[str, List[str]]:
     """Find all the dialogues in the corpus which contain multiple services. Can

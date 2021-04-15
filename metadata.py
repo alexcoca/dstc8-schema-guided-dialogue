@@ -48,7 +48,7 @@ for key values.
 
 SERVICES_TO_FILES = _metadata['SERVICES_TO_FILES']
 """Nested mapping with files where different services can be found::
-    
+
     {
     'split_name': {'service_name': List[str], of filenames }
     }
@@ -104,7 +104,7 @@ CATEGORICAL_SLOTS = set(_metadata['CATEGORICAL_SLOTS']) if _metadata['CATEGORICA
 _categorical_by_service = _metadata['CATEGORICAL_SLOTS_BY_SERVICE']
 CATEGORICAL_SLOTS_BY_SERVICE = cast_vals_to_set(_categorical_by_service) if _categorical_by_service else {}
 """
-Mapping of service names to categorical slots. 
+Mapping of service names to categorical slots.
 """  # type: Dict[str, Set[str]]
 
 _entity_by_service = _metadata['ENTITY_SLOTS_BY_SERVICE']

@@ -78,6 +78,7 @@ def file_iterator(filename: str, return_only: Optional[Set[str]] = None) -> Tupl
         for dial in dial_bunch:
             yield filename, dial
 
+
 def split_iterator(split: Literal['train', 'test', 'dev'], return_only: Optional[Set[str]] = None) -> Tuple[str, Dict]:
 
     # return specified dialogues only
@@ -113,6 +114,7 @@ def dialogue_iterator(dialogue: dict, user: bool = True, system: bool = True):
         else:
             yield turn
 
+
 def actions_iterator(frame: dict, exclude_acts: Optional[List[str]] = None):
 
     for act_dict in frame['actions']:
@@ -131,6 +133,7 @@ def schema_iterator(split: Literal['train', 'test', 'dev']) -> dict:
         schema = json.load(f)
     for service in schema:
         yield service
+
 
 def service_iterator(split: Literal['train', 'test', 'dev']) -> dict:
     raise NotImplementedError
@@ -158,5 +161,6 @@ def dial_sort_key(dialogue_id: str) -> Tuple[int, int]:
 def alphabetical_sort_key(name: str, n_chars: int = 10) -> str:
     return name[:n_chars]
 
+
 def dial_files_sort_key(name: str) -> int:
-     return int(name.split("_")[1].split(".")[0])
+    return int(name.split("_")[1].split(".")[0])
