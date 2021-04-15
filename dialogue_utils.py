@@ -3,9 +3,9 @@ data from dialogues and training splits. Use in conjunction with the
 information in the `metadata` module.
 """
 from typing import Dict, Set
-
-import metadata
 from utils import dialogue_iterator
+
+import json
 
 
 def has_requestables(dialogue: dict) -> bool:
@@ -57,4 +57,8 @@ def offers_entities(dialogue: dict) -> bool:
     """
 
     intents = get_dialogue_intents(dialogue, exclude_none=True)
-    return any(intent in metadata.SEARCH_INTENTS for intent in intents)
+    with open('metadata.json', 'r') as f:
+        metadata = json.load(f)
+    search_intents = set(metadata['SEARCH_INTENTS'])
+    return any(intent in search_intents for intent in intents)
+
