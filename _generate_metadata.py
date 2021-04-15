@@ -1,5 +1,5 @@
 from collections import defaultdict
-from dialogue_utils import get_dialogue_intents
+from utils.dialogue_utils import get_dialogue_intents
 from typing import Dict, Set, Tuple, List, Optional, Callable
 from typing_extensions import Literal
 from utils import (
