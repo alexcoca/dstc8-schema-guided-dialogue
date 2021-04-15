@@ -553,6 +553,2881 @@
     ]
   },
   {
+    "dialogue_id": "1_00029",
+    "services": [
+      "Flights_3"
+    ],
+    "turns": [
+      {
+        "frames": [
+          {
+            "actions": [
+              {
+                "act": "INFORM_INTENT",
+                "canonical_values": [
+                  "SearchOnewayFlight"
+                ],
+                "slot": "intent",
+                "values": [
+                  "SearchOnewayFlight"
+                ]
+              }
+            ],
+            "service": "Flights_3",
+            "slots": [],
+            "state": {
+              "active_intent": "SearchOnewayFlight",
+              "requested_slots": [],
+              "slot_values": {}
+            }
+          }
+        ],
+        "speaker": "USER",
+        "utterance": "Could you help me search for a one way flight?"
+      },
+      {
+        "frames": [
+          {
+            "actions": [
+              {
+                "act": "REQUEST",
+                "canonical_values": [],
+                "slot": "origin_city",
+                "values": []
+              },
+              {
+                "act": "REQUEST",
+                "canonical_values": [],
+                "slot": "departure_date",
+                "values": []
+              }
+            ],
+            "service": "Flights_3",
+            "slots": []
+          }
+        ],
+        "speaker": "SYSTEM",
+        "utterance": "Where and when do you intend to depart?"
+      },
+      {
+        "frames": [
+          {
+            "actions": [
+              {
+                "act": "INFORM",
+                "canonical_values": [
+                  "2019-03-03"
+                ],
+                "slot": "departure_date",
+                "values": [
+                  "3rd of March"
+                ]
+              },
+              {
+                "act": "INFORM",
+                "canonical_values": [
+                  "Vancouver"
+                ],
+                "slot": "origin_city",
+                "values": [
+                  "Vancouver"
+                ]
+              }
+            ],
+            "service": "Flights_3",
+            "slots": [
+              {
+                "exclusive_end": 54,
+                "slot": "departure_date",
+                "start": 42
+              },
+              {
+                "exclusive_end": 34,
+                "slot": "origin_city",
+                "start": 25
+              }
+            ],
+            "state": {
+              "active_intent": "SearchOnewayFlight",
+              "requested_slots": [],
+              "slot_values": {
+                "departure_date": [
+                  "3rd of March"
+                ],
+                "origin_city": [
+                  "Vancouver"
+                ]
+              }
+            }
+          }
+        ],
+        "speaker": "USER",
+        "utterance": "I will be departing from Vancouver on the 3rd of March."
+      },
+      {
+        "frames": [
+          {
+            "actions": [
+              {
+                "act": "REQUEST",
+                "canonical_values": [],
+                "slot": "destination_city",
+                "values": []
+              }
+            ],
+            "service": "Flights_3",
+            "slots": []
+          }
+        ],
+        "speaker": "SYSTEM",
+        "utterance": "Where do you plan to travel to?"
+      },
+      {
+        "frames": [
+          {
+            "actions": [
+              {
+                "act": "INFORM",
+                "canonical_values": [
+                  "Seattle"
+                ],
+                "slot": "destination_city",
+                "values": [
+                  "Seattle"
+                ]
+              }
+            ],
+            "service": "Flights_3",
+            "slots": [
+              {
+                "exclusive_end": 27,
+                "slot": "destination_city",
+                "start": 20
+              }
+            ],
+            "state": {
+              "active_intent": "SearchOnewayFlight",
+              "requested_slots": [],
+              "slot_values": {
+                "departure_date": [
+                  "3rd of March"
+                ],
+                "destination_city": [
+                  "Seattle"
+                ],
+                "origin_city": [
+                  "Vancouver"
+                ]
+              }
+            }
+          }
+        ],
+        "speaker": "USER",
+        "utterance": "I will be flying to Seattle."
+      },
+      {
+        "frames": [
+          {
+            "actions": [
+              {
+                "act": "OFFER",
+                "canonical_values": [
+                  "Air Canada"
+                ],
+                "slot": "airlines",
+                "values": [
+                  "Air Canada"
+                ]
+              },
+              {
+                "act": "OFFER",
+                "canonical_values": [
+                  "04:20"
+                ],
+                "slot": "outbound_departure_time",
+                "values": [
+                  "4:20 am"
+                ]
+              },
+              {
+                "act": "OFFER",
+                "canonical_values": [
+                  "1"
+                ],
+                "slot": "number_stops",
+                "values": [
+                  "1"
+                ]
+              },
+              {
+                "act": "OFFER",
+                "canonical_values": [
+                  "322"
+                ],
+                "slot": "price",
+                "values": [
+                  "$322"
+                ]
+              },
+              {
+                "act": "INFORM_COUNT",
+                "canonical_values": [
+                  "4"
+                ],
+                "slot": "count",
+                "values": [
+                  "4"
+                ]
+              }
+            ],
+            "service": "Flights_3",
+            "service_call": {
+              "method": "SearchOnewayFlight",
+              "parameters": {
+                "departure_date": "2019-03-03",
+                "destination_city": "Seattle",
+                "origin_city": "Vancouver"
+              }
+            },
+            "service_results": [
+              {
+                "airlines": "Air Canada",
+                "arrives_next_day": "False",
+                "departure_date": "2019-03-03",
+                "destination_airport_name": "Seattle-Tacoma International Airport",
+                "destination_city": "Seattle",
+                "flight_class": "Economy",
+                "number_checked_bags": "0",
+                "number_stops": "1",
+                "origin_airport_name": "YVR International Airport",
+                "origin_city": "Vancouver",
+                "outbound_arrival_time": "11:02",
+                "outbound_departure_time": "04:20",
+                "passengers": "1",
+                "price": "322"
+              },
+              {
+                "airlines": "American Airlines",
+                "arrives_next_day": "False",
+                "departure_date": "2019-03-03",
+                "destination_airport_name": "Seattle-Tacoma International Airport",
+                "destination_city": "Seattle",
+                "flight_class": "Economy",
+                "number_checked_bags": "0",
+                "number_stops": "1",
+                "origin_airport_name": "YVR International Airport",
+                "origin_city": "Vancouver",
+                "outbound_arrival_time": "12:02",
+                "outbound_departure_time": "01:30",
+                "passengers": "1",
+                "price": "303"
+              },
+              {
+                "airlines": "Delta Airlines",
+                "arrives_next_day": "False",
+                "departure_date": "2019-03-03",
+                "destination_airport_name": "Seattle-Tacoma International Airport",
+                "destination_city": "Seattle",
+                "flight_class": "Economy",
+                "number_checked_bags": "0",
+                "number_stops": "1",
+                "origin_airport_name": "YVR International Airport",
+                "origin_city": "Vancouver",
+                "outbound_arrival_time": "16:16",
+                "outbound_departure_time": "06:40",
+                "passengers": "1",
+                "price": "261"
+              },
+              {
+                "airlines": "United Airlines",
+                "arrives_next_day": "True",
+                "departure_date": "2019-03-03",
+                "destination_airport_name": "Seattle-Tacoma International Airport",
+                "destination_city": "Seattle",
+                "flight_class": "Economy",
+                "number_checked_bags": "0",
+                "number_stops": "1",
+                "origin_airport_name": "YVR International Airport",
+                "origin_city": "Vancouver",
+                "outbound_arrival_time": "01:17",
+                "outbound_departure_time": "18:55",
+                "passengers": "1",
+                "price": "261"
+              }
+            ],
+            "slots": [
+              {
+                "exclusive_end": 115,
+                "slot": "outbound_departure_time",
+                "start": 108
+              },
+              {
+                "exclusive_end": 144,
+                "slot": "price",
+                "start": 140
+              }
+            ]
+          }
+        ],
+        "speaker": "SYSTEM",
+        "utterance": "I managed to find 4 flights for you, one of which is an Air Canada flight with 1 layover and will depart at 4:20 am which will set you back $322."
+      },
+      {
+        "frames": [
+          {
+            "actions": [
+              {
+                "act": "SELECT",
+                "canonical_values": [],
+                "slot": "",
+                "values": []
+              }
+            ],
+            "service": "Flights_3",
+            "slots": [],
+            "state": {
+              "active_intent": "SearchOnewayFlight",
+              "requested_slots": [],
+              "slot_values": {
+                "airlines": [
+                  "Air Canada"
+                ],
+                "departure_date": [
+                  "3rd of March"
+                ],
+                "destination_city": [
+                  "Seattle"
+                ],
+                "origin_city": [
+                  "Vancouver"
+                ]
+              }
+            }
+          }
+        ],
+        "speaker": "USER",
+        "utterance": "That sounds great."
+      },
+      {
+        "frames": [
+          {
+            "actions": [
+              {
+                "act": "REQ_MORE",
+                "canonical_values": [],
+                "slot": "",
+                "values": []
+              }
+            ],
+            "service": "Flights_3",
+            "slots": []
+          }
+        ],
+        "speaker": "SYSTEM",
+        "utterance": "Could I further assist you?"
+      },
+      {
+        "frames": [
+          {
+            "actions": [
+              {
+                "act": "NEGATE",
+                "canonical_values": [],
+                "slot": "",
+                "values": []
+              },
+              {
+                "act": "THANK_YOU",
+                "canonical_values": [],
+                "slot": "",
+                "values": []
+              }
+            ],
+            "service": "Flights_3",
+            "slots": [],
+            "state": {
+              "active_intent": "NONE",
+              "requested_slots": [],
+              "slot_values": {
+                "airlines": [
+                  "Air Canada"
+                ],
+                "departure_date": [
+                  "3rd of March"
+                ],
+                "destination_city": [
+                  "Seattle"
+                ],
+                "origin_city": [
+                  "Vancouver"
+                ]
+              }
+            }
+          }
+        ],
+        "speaker": "USER",
+        "utterance": "No need, thank you."
+      },
+      {
+        "frames": [
+          {
+            "actions": [
+              {
+                "act": "GOODBYE",
+                "canonical_values": [],
+                "slot": "",
+                "values": []
+              }
+            ],
+            "service": "Flights_3",
+            "slots": []
+          }
+        ],
+        "speaker": "SYSTEM",
+        "utterance": "Sure, have a great day ahead!"
+      }
+    ]
+  },
+  {
+    "dialogue_id": "8_00000",
+    "services": [
+      "Buses_1",
+      "RentalCars_1"
+    ],
+    "turns": [
+      {
+        "frames": [
+          {
+            "actions": [
+              {
+                "act": "INFORM",
+                "canonical_values": [
+                  "2"
+                ],
+                "slot": "travelers",
+                "values": [
+                  "2"
+                ]
+              },
+              {
+                "act": "INFORM",
+                "canonical_values": [
+                  "10:30"
+                ],
+                "slot": "leaving_time",
+                "values": [
+                  "10:30"
+                ]
+              },
+              {
+                "act": "INFORM_INTENT",
+                "canonical_values": [
+                  "BuyBusTicket"
+                ],
+                "slot": "intent",
+                "values": [
+                  "BuyBusTicket"
+                ]
+              }
+            ],
+            "service": "Buses_1",
+            "slots": [
+              {
+                "exclusive_end": 49,
+                "slot": "leaving_time",
+                "start": 44
+              }
+            ],
+            "state": {
+              "active_intent": "BuyBusTicket",
+              "requested_slots": [],
+              "slot_values": {
+                "leaving_time": [
+                  "10:30"
+                ],
+                "travelers": [
+                  "2"
+                ]
+              }
+            }
+          }
+        ],
+        "speaker": "USER",
+        "utterance": "I need 2 tickets for the bus leaving around 10:30."
+      },
+      {
+        "frames": [
+          {
+            "actions": [
+              {
+                "act": "REQUEST",
+                "canonical_values": [],
+                "slot": "leaving_date",
+                "values": []
+              }
+            ],
+            "service": "Buses_1",
+            "slots": []
+          }
+        ],
+        "speaker": "SYSTEM",
+        "utterance": "When are you leaving?"
+      },
+      {
+        "frames": [
+          {
+            "actions": [
+              {
+                "act": "INFORM",
+                "canonical_values": [
+                  "2019-03-08"
+                ],
+                "slot": "leaving_date",
+                "values": [
+                  "8th of March"
+                ]
+              }
+            ],
+            "service": "Buses_1",
+            "slots": [
+              {
+                "exclusive_end": 12,
+                "slot": "leaving_date",
+                "start": 0
+              }
+            ],
+            "state": {
+              "active_intent": "BuyBusTicket",
+              "requested_slots": [],
+              "slot_values": {
+                "leaving_date": [
+                  "8th of March"
+                ],
+                "leaving_time": [
+                  "10:30"
+                ],
+                "travelers": [
+                  "2"
+                ]
+              }
+            }
+          }
+        ],
+        "speaker": "USER",
+        "utterance": "8th of March."
+      },
+      {
+        "frames": [
+          {
+            "actions": [
+              {
+                "act": "REQUEST",
+                "canonical_values": [],
+                "slot": "to_location",
+                "values": []
+              },
+              {
+                "act": "REQUEST",
+                "canonical_values": [],
+                "slot": "from_location",
+                "values": []
+              }
+            ],
+            "service": "Buses_1",
+            "slots": []
+          }
+        ],
+        "speaker": "SYSTEM",
+        "utterance": "Where are you going? Where are you leaving from?"
+      },
+      {
+        "frames": [
+          {
+            "actions": [
+              {
+                "act": "INFORM",
+                "canonical_values": [
+                  "San Diego"
+                ],
+                "slot": "from_location",
+                "values": [
+                  "San Diego"
+                ]
+              },
+              {
+                "act": "INFORM",
+                "canonical_values": [
+                  "Fresno"
+                ],
+                "slot": "to_location",
+                "values": [
+                  "Fresno"
+                ]
+              }
+            ],
+            "service": "Buses_1",
+            "slots": [
+              {
+                "exclusive_end": 27,
+                "slot": "from_location",
+                "start": 18
+              },
+              {
+                "exclusive_end": 43,
+                "slot": "to_location",
+                "start": 37
+              }
+            ],
+            "state": {
+              "active_intent": "BuyBusTicket",
+              "requested_slots": [],
+              "slot_values": {
+                "from_location": [
+                  "San Diego"
+                ],
+                "leaving_date": [
+                  "8th of March"
+                ],
+                "leaving_time": [
+                  "10:30"
+                ],
+                "to_location": [
+                  "Fresno"
+                ],
+                "travelers": [
+                  "2"
+                ]
+              }
+            }
+          }
+        ],
+        "speaker": "USER",
+        "utterance": "I am leaving from San Diego to go to Fresno."
+      },
+      {
+        "frames": [
+          {
+            "actions": [
+              {
+                "act": "CONFIRM",
+                "canonical_values": [
+                  "San Diego"
+                ],
+                "slot": "from_location",
+                "values": [
+                  "San Diego"
+                ]
+              },
+              {
+                "act": "CONFIRM",
+                "canonical_values": [
+                  "Fresno"
+                ],
+                "slot": "to_location",
+                "values": [
+                  "Fresno"
+                ]
+              },
+              {
+                "act": "CONFIRM",
+                "canonical_values": [
+                  "2019-03-08"
+                ],
+                "slot": "leaving_date",
+                "values": [
+                  "March 8th"
+                ]
+              },
+              {
+                "act": "CONFIRM",
+                "canonical_values": [
+                  "10:30"
+                ],
+                "slot": "leaving_time",
+                "values": [
+                  "10:30 am"
+                ]
+              },
+              {
+                "act": "CONFIRM",
+                "canonical_values": [
+                  "2"
+                ],
+                "slot": "travelers",
+                "values": [
+                  "2"
+                ]
+              }
+            ],
+            "service": "Buses_1",
+            "slots": [
+              {
+                "exclusive_end": 44,
+                "slot": "from_location",
+                "start": 35
+              },
+              {
+                "exclusive_end": 54,
+                "slot": "to_location",
+                "start": 48
+              },
+              {
+                "exclusive_end": 67,
+                "slot": "leaving_date",
+                "start": 58
+              },
+              {
+                "exclusive_end": 79,
+                "slot": "leaving_time",
+                "start": 71
+              }
+            ]
+          }
+        ],
+        "speaker": "SYSTEM",
+        "utterance": "Please confirm, 2 bus tickets from San Diego to Fresno on March 8th on 10:30 am."
+      },
+      {
+        "frames": [
+          {
+            "actions": [
+              {
+                "act": "AFFIRM",
+                "canonical_values": [],
+                "slot": "",
+                "values": []
+              }
+            ],
+            "service": "Buses_1",
+            "slots": [],
+            "state": {
+              "active_intent": "BuyBusTicket",
+              "requested_slots": [],
+              "slot_values": {
+                "from_location": [
+                  "San Diego"
+                ],
+                "leaving_date": [
+                  "8th of March",
+                  "March 8th"
+                ],
+                "leaving_time": [
+                  "10:30",
+                  "10:30 am"
+                ],
+                "to_location": [
+                  "Fresno"
+                ],
+                "travelers": [
+                  "2"
+                ]
+              }
+            }
+          }
+        ],
+        "speaker": "USER",
+        "utterance": "Yes, that is perfect."
+      },
+      {
+        "frames": [
+          {
+            "actions": [
+              {
+                "act": "NOTIFY_SUCCESS",
+                "canonical_values": [],
+                "slot": "",
+                "values": []
+              }
+            ],
+            "service": "Buses_1",
+            "service_call": {
+              "method": "BuyBusTicket",
+              "parameters": {
+                "from_location": "San Diego",
+                "leaving_date": "2019-03-08",
+                "leaving_time": "10:30",
+                "to_location": "Fresno",
+                "travelers": "2"
+              }
+            },
+            "service_results": [
+              {
+                "fare": "45",
+                "from_location": "San Diego",
+                "from_station": "Santa Fe Depot",
+                "leaving_date": "2019-03-08",
+                "leaving_time": "10:30",
+                "to_location": "Fresno",
+                "to_station": "Fresno Station",
+                "transfers": "0",
+                "travelers": "2"
+              }
+            ],
+            "slots": []
+          }
+        ],
+        "speaker": "SYSTEM",
+        "utterance": "Your tickets are confirmed."
+      },
+      {
+        "frames": [
+          {
+            "actions": [
+              {
+                "act": "INFORM",
+                "canonical_values": [
+                  "Full-size"
+                ],
+                "slot": "type",
+                "values": [
+                  "Full-size"
+                ]
+              },
+              {
+                "act": "INFORM",
+                "canonical_values": [
+                  "Fresno"
+                ],
+                "slot": "pickup_city",
+                "values": [
+                  "Fresno"
+                ]
+              },
+              {
+                "act": "INFORM_INTENT",
+                "canonical_values": [
+                  "GetCarsAvailable"
+                ],
+                "slot": "intent",
+                "values": [
+                  "GetCarsAvailable"
+                ]
+              }
+            ],
+            "service": "RentalCars_1",
+            "slots": [
+              {
+                "exclusive_end": 48,
+                "slot": "pickup_city",
+                "start": 42
+              }
+            ],
+            "state": {
+              "active_intent": "GetCarsAvailable",
+              "requested_slots": [],
+              "slot_values": {
+                "pickup_city": [
+                  "Fresno"
+                ],
+                "type": [
+                  "Full-size"
+                ]
+              }
+            }
+          }
+        ],
+        "speaker": "USER",
+        "utterance": "Thanks, I also need a full-size rental in Fresno."
+      },
+      {
+        "frames": [
+          {
+            "actions": [
+              {
+                "act": "REQUEST",
+                "canonical_values": [],
+                "slot": "pickup_time",
+                "values": []
+              }
+            ],
+            "service": "RentalCars_1",
+            "slots": []
+          }
+        ],
+        "speaker": "SYSTEM",
+        "utterance": "What time do you want to pick it up?"
+      },
+      {
+        "frames": [
+          {
+            "actions": [
+              {
+                "act": "INFORM",
+                "canonical_values": [
+                  "13:30"
+                ],
+                "slot": "pickup_time",
+                "values": [
+                  "1:30 in the afternoon"
+                ]
+              },
+              {
+                "act": "INFORM",
+                "canonical_values": [
+                  "2019-03-11"
+                ],
+                "slot": "pickup_date",
+                "values": [
+                  "11th of March"
+                ]
+              }
+            ],
+            "service": "RentalCars_1",
+            "slots": [
+              {
+                "exclusive_end": 66,
+                "slot": "pickup_time",
+                "start": 45
+              },
+              {
+                "exclusive_end": 41,
+                "slot": "pickup_date",
+                "start": 28
+              }
+            ],
+            "state": {
+              "active_intent": "GetCarsAvailable",
+              "requested_slots": [],
+              "slot_values": {
+                "pickup_city": [
+                  "Fresno"
+                ],
+                "pickup_date": [
+                  "11th of March"
+                ],
+                "pickup_time": [
+                  "1:30 in the afternoon"
+                ],
+                "type": [
+                  "Full-size"
+                ]
+              }
+            }
+          }
+        ],
+        "speaker": "USER",
+        "utterance": "I want to pick it up on the 11th of March at 1:30 in the afternoon."
+      },
+      {
+        "frames": [
+          {
+            "actions": [
+              {
+                "act": "REQUEST",
+                "canonical_values": [],
+                "slot": "dropoff_date",
+                "values": []
+              }
+            ],
+            "service": "RentalCars_1",
+            "slots": []
+          }
+        ],
+        "speaker": "SYSTEM",
+        "utterance": "When do you want to drop it off?"
+      },
+      {
+        "frames": [
+          {
+            "actions": [
+              {
+                "act": "INFORM",
+                "canonical_values": [
+                  "2019-03-14"
+                ],
+                "slot": "dropoff_date",
+                "values": [
+                  "14th of this Month"
+                ]
+              }
+            ],
+            "service": "RentalCars_1",
+            "slots": [
+              {
+                "exclusive_end": 38,
+                "slot": "dropoff_date",
+                "start": 20
+              }
+            ],
+            "state": {
+              "active_intent": "GetCarsAvailable",
+              "requested_slots": [],
+              "slot_values": {
+                "dropoff_date": [
+                  "14th of this Month"
+                ],
+                "pickup_city": [
+                  "Fresno"
+                ],
+                "pickup_date": [
+                  "11th of March"
+                ],
+                "pickup_time": [
+                  "1:30 in the afternoon"
+                ],
+                "type": [
+                  "Full-size"
+                ]
+              }
+            }
+          }
+        ],
+        "speaker": "USER",
+        "utterance": "I need it until the 14th of this Month."
+      },
+      {
+        "frames": [
+          {
+            "actions": [
+              {
+                "act": "OFFER",
+                "canonical_values": [
+                  "Fresno Yosemite International Airport"
+                ],
+                "slot": "pickup_location",
+                "values": [
+                  "Fresno Yosemite International Airport"
+                ]
+              },
+              {
+                "act": "OFFER",
+                "canonical_values": [
+                  "2019-03-11"
+                ],
+                "slot": "pickup_date",
+                "values": [
+                  "March 11th"
+                ]
+              },
+              {
+                "act": "OFFER",
+                "canonical_values": [
+                  "Full-size"
+                ],
+                "slot": "type",
+                "values": [
+                  "Full-size"
+                ]
+              },
+              {
+                "act": "OFFER",
+                "canonical_values": [
+                  "Cherokee"
+                ],
+                "slot": "car_name",
+                "values": [
+                  "Cherokee"
+                ]
+              }
+            ],
+            "service": "RentalCars_1",
+            "service_call": {
+              "method": "GetCarsAvailable",
+              "parameters": {
+                "dropoff_date": "2019-03-14",
+                "pickup_city": "Fresno",
+                "pickup_date": "2019-03-11",
+                "pickup_time": "13:30",
+                "type": "Full-size"
+              }
+            },
+            "service_results": [
+              {
+                "car_name": "Cherokee",
+                "dropoff_date": "2019-03-14",
+                "pickup_city": "Fresno",
+                "pickup_date": "2019-03-11",
+                "pickup_location": "Fresno Yosemite International Airport",
+                "pickup_time": "13:30",
+                "total_price": "132",
+                "type": "Full-size"
+              },
+              {
+                "car_name": "Rogue",
+                "dropoff_date": "2019-03-14",
+                "pickup_city": "Fresno",
+                "pickup_date": "2019-03-11",
+                "pickup_location": "Fresno Yosemite International Airport",
+                "pickup_time": "13:30",
+                "total_price": "147",
+                "type": "Full-size"
+              }
+            ],
+            "slots": [
+              {
+                "exclusive_end": 82,
+                "slot": "pickup_location",
+                "start": 45
+              },
+              {
+                "exclusive_end": 103,
+                "slot": "pickup_date",
+                "start": 93
+              },
+              {
+                "exclusive_end": 40,
+                "slot": "car_name",
+                "start": 32
+              }
+            ]
+          }
+        ],
+        "speaker": "SYSTEM",
+        "utterance": "I found a full-size car, like a Cherokee, at Fresno Yosemite International Airport available March 11th."
+      },
+      {
+        "frames": [
+          {
+            "actions": [
+              {
+                "act": "SELECT",
+                "canonical_values": [],
+                "slot": "",
+                "values": []
+              }
+            ],
+            "service": "RentalCars_1",
+            "slots": [],
+            "state": {
+              "active_intent": "GetCarsAvailable",
+              "requested_slots": [],
+              "slot_values": {
+                "dropoff_date": [
+                  "14th of this Month"
+                ],
+                "pickup_city": [
+                  "Fresno"
+                ],
+                "pickup_date": [
+                  "11th of March",
+                  "March 11th"
+                ],
+                "pickup_location": [
+                  "Fresno Yosemite International Airport"
+                ],
+                "pickup_time": [
+                  "1:30 in the afternoon"
+                ],
+                "type": [
+                  "Full-size"
+                ]
+              }
+            }
+          }
+        ],
+        "speaker": "USER",
+        "utterance": "That sounds cool."
+      },
+      {
+        "frames": [
+          {
+            "actions": [
+              {
+                "act": "REQ_MORE",
+                "canonical_values": [],
+                "slot": "",
+                "values": []
+              }
+            ],
+            "service": "RentalCars_1",
+            "slots": []
+          }
+        ],
+        "speaker": "SYSTEM",
+        "utterance": "Can I help with anything else?"
+      },
+      {
+        "frames": [
+          {
+            "actions": [
+              {
+                "act": "INFORM_INTENT",
+                "canonical_values": [
+                  "ReserveCar"
+                ],
+                "slot": "intent",
+                "values": [
+                  "ReserveCar"
+                ]
+              }
+            ],
+            "service": "RentalCars_1",
+            "slots": [],
+            "state": {
+              "active_intent": "ReserveCar",
+              "requested_slots": [],
+              "slot_values": {
+                "dropoff_date": [
+                  "14th of this Month"
+                ],
+                "pickup_city": [
+                  "Fresno"
+                ],
+                "pickup_date": [
+                  "11th of March",
+                  "March 11th"
+                ],
+                "pickup_location": [
+                  "Fresno Yosemite International Airport"
+                ],
+                "pickup_time": [
+                  "1:30 in the afternoon"
+                ],
+                "type": [
+                  "Full-size"
+                ]
+              }
+            }
+          }
+        ],
+        "speaker": "USER",
+        "utterance": "I am ready to make a reservation."
+      },
+      {
+        "frames": [
+          {
+            "actions": [
+              {
+                "act": "CONFIRM",
+                "canonical_values": [
+                  "Fresno Yosemite International Airport"
+                ],
+                "slot": "pickup_location",
+                "values": [
+                  "Fresno Yosemite International Airport"
+                ]
+              },
+              {
+                "act": "CONFIRM",
+                "canonical_values": [
+                  "2019-03-11"
+                ],
+                "slot": "pickup_date",
+                "values": [
+                  "March 11th"
+                ]
+              },
+              {
+                "act": "CONFIRM",
+                "canonical_values": [
+                  "13:30"
+                ],
+                "slot": "pickup_time",
+                "values": [
+                  "1:30 pm"
+                ]
+              },
+              {
+                "act": "CONFIRM",
+                "canonical_values": [
+                  "2019-03-14"
+                ],
+                "slot": "dropoff_date",
+                "values": [
+                  "March 14th"
+                ]
+              },
+              {
+                "act": "CONFIRM",
+                "canonical_values": [
+                  "Full-size"
+                ],
+                "slot": "type",
+                "values": [
+                  "Full-size"
+                ]
+              }
+            ],
+            "service": "RentalCars_1",
+            "slots": [
+              {
+                "exclusive_end": 88,
+                "slot": "pickup_location",
+                "start": 51
+              },
+              {
+                "exclusive_end": 102,
+                "slot": "pickup_date",
+                "start": 92
+              },
+              {
+                "exclusive_end": 113,
+                "slot": "pickup_time",
+                "start": 106
+              },
+              {
+                "exclusive_end": 146,
+                "slot": "dropoff_date",
+                "start": 136
+              }
+            ]
+          }
+        ],
+        "speaker": "SYSTEM",
+        "utterance": "Please confirm, reservation for a full-size car at Fresno Yosemite International Airport on March 11th at 1:30 pm. The drop off day was March 14th."
+      },
+      {
+        "frames": [
+          {
+            "actions": [
+              {
+                "act": "REQUEST",
+                "canonical_values": [],
+                "slot": "total_price",
+                "values": []
+              },
+              {
+                "act": "AFFIRM",
+                "canonical_values": [],
+                "slot": "",
+                "values": []
+              }
+            ],
+            "service": "RentalCars_1",
+            "slots": [],
+            "state": {
+              "active_intent": "ReserveCar",
+              "requested_slots": [
+                "total_price"
+              ],
+              "slot_values": {
+                "dropoff_date": [
+                  "14th of this Month",
+                  "March 14th"
+                ],
+                "pickup_city": [
+                  "Fresno"
+                ],
+                "pickup_date": [
+                  "11th of March",
+                  "March 11th"
+                ],
+                "pickup_location": [
+                  "Fresno Yosemite International Airport"
+                ],
+                "pickup_time": [
+                  "1:30 in the afternoon",
+                  "1:30 pm"
+                ],
+                "type": [
+                  "Full-size"
+                ]
+              }
+            }
+          }
+        ],
+        "speaker": "USER",
+        "utterance": "That sounds good. What is the total cost?"
+      },
+      {
+        "frames": [
+          {
+            "actions": [
+              {
+                "act": "INFORM",
+                "canonical_values": [
+                  "132"
+                ],
+                "slot": "total_price",
+                "values": [
+                  "$132"
+                ]
+              },
+              {
+                "act": "NOTIFY_SUCCESS",
+                "canonical_values": [],
+                "slot": "",
+                "values": []
+              }
+            ],
+            "service": "RentalCars_1",
+            "service_call": {
+              "method": "ReserveCar",
+              "parameters": {
+                "dropoff_date": "2019-03-14",
+                "pickup_date": "2019-03-11",
+                "pickup_location": "Fresno Yosemite International Airport",
+                "pickup_time": "13:30",
+                "type": "Full-size"
+              }
+            },
+            "service_results": [
+              {
+                "car_name": "Cherokee",
+                "dropoff_date": "2019-03-14",
+                "pickup_date": "2019-03-11",
+                "pickup_location": "Fresno Yosemite International Airport",
+                "pickup_time": "13:30",
+                "total_price": "132",
+                "type": "Full-size"
+              }
+            ],
+            "slots": [
+              {
+                "exclusive_end": 39,
+                "slot": "total_price",
+                "start": 35
+              }
+            ]
+          }
+        ],
+        "speaker": "SYSTEM",
+        "utterance": "Your car is reserved. The total is $132."
+      },
+      {
+        "frames": [
+          {
+            "actions": [
+              {
+                "act": "THANK_YOU",
+                "canonical_values": [],
+                "slot": "",
+                "values": []
+              },
+              {
+                "act": "GOODBYE",
+                "canonical_values": [],
+                "slot": "",
+                "values": []
+              }
+            ],
+            "service": "RentalCars_1",
+            "slots": [],
+            "state": {
+              "active_intent": "ReserveCar",
+              "requested_slots": [],
+              "slot_values": {
+                "dropoff_date": [
+                  "14th of this Month",
+                  "March 14th"
+                ],
+                "pickup_city": [
+                  "Fresno"
+                ],
+                "pickup_date": [
+                  "11th of March",
+                  "March 11th"
+                ],
+                "pickup_location": [
+                  "Fresno Yosemite International Airport"
+                ],
+                "pickup_time": [
+                  "1:30 in the afternoon",
+                  "1:30 pm"
+                ],
+                "type": [
+                  "Full-size"
+                ]
+              }
+            }
+          }
+        ],
+        "speaker": "USER",
+        "utterance": "Thanks, that is all I need."
+      },
+      {
+        "frames": [
+          {
+            "actions": [
+              {
+                "act": "GOODBYE",
+                "canonical_values": [],
+                "slot": "",
+                "values": []
+              }
+            ],
+            "service": "RentalCars_1",
+            "slots": []
+          }
+        ],
+        "speaker": "SYSTEM",
+        "utterance": "Have a nice day."
+      }
+    ]
+  },
+  {
+    "dialogue_id": "3_00049",
+    "services": [
+      "Services_4"
+    ],
+    "turns": [
+      {
+        "frames": [
+          {
+            "actions": [
+              {
+                "act": "INFORM_INTENT",
+                "canonical_values": [
+                  "FindProvider"
+                ],
+                "slot": "intent",
+                "values": [
+                  "FindProvider"
+                ]
+              }
+            ],
+            "service": "Services_4",
+            "slots": [],
+            "state": {
+              "active_intent": "FindProvider",
+              "requested_slots": [],
+              "slot_values": {}
+            }
+          }
+        ],
+        "speaker": "USER",
+        "utterance": "Could you find me a therapist?"
+      },
+      {
+        "frames": [
+          {
+            "actions": [
+              {
+                "act": "REQUEST",
+                "canonical_values": [],
+                "slot": "city",
+                "values": []
+              },
+              {
+                "act": "REQUEST",
+                "canonical_values": [],
+                "slot": "type",
+                "values": []
+              }
+            ],
+            "service": "Services_4",
+            "slots": []
+          }
+        ],
+        "speaker": "SYSTEM",
+        "utterance": "What city should I search in and what kind of therapist do you need?"
+      },
+      {
+        "frames": [
+          {
+            "actions": [
+              {
+                "act": "INFORM",
+                "canonical_values": [
+                  "Psychologist"
+                ],
+                "slot": "type",
+                "values": [
+                  "Psychologist"
+                ]
+              },
+              {
+                "act": "INFORM",
+                "canonical_values": [
+                  "Mill Valley"
+                ],
+                "slot": "city",
+                "values": [
+                  "Mill Valley"
+                ]
+              }
+            ],
+            "service": "Services_4",
+            "slots": [
+              {
+                "exclusive_end": 36,
+                "slot": "city",
+                "start": 25
+              }
+            ],
+            "state": {
+              "active_intent": "FindProvider",
+              "requested_slots": [],
+              "slot_values": {
+                "city": [
+                  "Mill Valley"
+                ],
+                "type": [
+                  "Psychologist"
+                ]
+              }
+            }
+          }
+        ],
+        "speaker": "USER",
+        "utterance": "I want a psychologist in Mill Valley."
+      },
+      {
+        "frames": [
+          {
+            "actions": [
+              {
+                "act": "OFFER",
+                "canonical_values": [
+                  "Brown Brooke A"
+                ],
+                "slot": "therapist_name",
+                "values": [
+                  "Brown Brooke A"
+                ]
+              },
+              {
+                "act": "OFFER",
+                "canonical_values": [
+                  "Psychologist"
+                ],
+                "slot": "type",
+                "values": [
+                  "Psychologist"
+                ]
+              },
+              {
+                "act": "OFFER",
+                "canonical_values": [
+                  "Mill Valley"
+                ],
+                "slot": "city",
+                "values": [
+                  "Mill Valley"
+                ]
+              }
+            ],
+            "service": "Services_4",
+            "service_call": {
+              "method": "FindProvider",
+              "parameters": {
+                "city": "Mill Valley",
+                "type": "Psychologist"
+              }
+            },
+            "service_results": [
+              {
+                "address": "247 Miller Ave",
+                "city": "Mill Valley",
+                "phone_number": "415-458-3177",
+                "therapist_name": "Brown Brooke A",
+                "type": "Psychologist"
+              },
+              {
+                "address": "150 Shoreline Highway",
+                "city": "Mill Valley",
+                "phone_number": "415-332-3352",
+                "therapist_name": "Pamela Butler, Psychologist",
+                "type": "Psychologist"
+              },
+              {
+                "address": "591 Redwood Highway # 2235",
+                "city": "Mill Valley",
+                "phone_number": "415-381-0300",
+                "therapist_name": "Panzarella Jacob P",
+                "type": "Psychologist"
+              }
+            ],
+            "slots": [
+              {
+                "exclusive_end": 25,
+                "slot": "therapist_name",
+                "start": 11
+              },
+              {
+                "exclusive_end": 65,
+                "slot": "city",
+                "start": 54
+              }
+            ]
+          }
+        ],
+        "speaker": "SYSTEM",
+        "utterance": "What about Brown Brooke A? They are a psychologist in Mill Valley."
+      },
+      {
+        "frames": [
+          {
+            "actions": [
+              {
+                "act": "REQUEST",
+                "canonical_values": [],
+                "slot": "phone_number",
+                "values": []
+              }
+            ],
+            "service": "Services_4",
+            "slots": [],
+            "state": {
+              "active_intent": "FindProvider",
+              "requested_slots": [
+                "phone_number"
+              ],
+              "slot_values": {
+                "city": [
+                  "Mill Valley"
+                ],
+                "type": [
+                  "Psychologist"
+                ]
+              }
+            }
+          }
+        ],
+        "speaker": "USER",
+        "utterance": "What is their phone number?"
+      },
+      {
+        "frames": [
+          {
+            "actions": [
+              {
+                "act": "INFORM",
+                "canonical_values": [
+                  "415-458-3177"
+                ],
+                "slot": "phone_number",
+                "values": [
+                  "415-458-3177"
+                ]
+              }
+            ],
+            "service": "Services_4",
+            "slots": [
+              {
+                "exclusive_end": 34,
+                "slot": "phone_number",
+                "start": 22
+              }
+            ]
+          }
+        ],
+        "speaker": "SYSTEM",
+        "utterance": "Their phone number is 415-458-3177."
+      },
+      {
+        "frames": [
+          {
+            "actions": [
+              {
+                "act": "INFORM",
+                "canonical_values": [
+                  "Family Counselor"
+                ],
+                "slot": "type",
+                "values": [
+                  "Family Counselor"
+                ]
+              },
+              {
+                "act": "REQUEST_ALTS",
+                "canonical_values": [],
+                "slot": "",
+                "values": []
+              }
+            ],
+            "service": "Services_4",
+            "slots": [],
+            "state": {
+              "active_intent": "FindProvider",
+              "requested_slots": [],
+              "slot_values": {
+                "city": [
+                  "Mill Valley"
+                ],
+                "type": [
+                  "Family Counselor"
+                ]
+              }
+            }
+          }
+        ],
+        "speaker": "USER",
+        "utterance": "Could you recommend any other therapists? What about a family counselor?"
+      },
+      {
+        "frames": [
+          {
+            "actions": [
+              {
+                "act": "OFFER",
+                "canonical_values": [
+                  "Sorensen Phyllis"
+                ],
+                "slot": "therapist_name",
+                "values": [
+                  "Sorensen Phyllis"
+                ]
+              },
+              {
+                "act": "OFFER",
+                "canonical_values": [
+                  "Family Counselor"
+                ],
+                "slot": "type",
+                "values": [
+                  "Family Counselor"
+                ]
+              },
+              {
+                "act": "OFFER",
+                "canonical_values": [
+                  "Mill Valley"
+                ],
+                "slot": "city",
+                "values": [
+                  "Mill Valley"
+                ]
+              }
+            ],
+            "service": "Services_4",
+            "service_call": {
+              "method": "FindProvider",
+              "parameters": {
+                "city": "Mill Valley",
+                "type": "Family Counselor"
+              }
+            },
+            "service_results": [
+              {
+                "address": "40 Camino Alto # 15212",
+                "city": "Mill Valley",
+                "phone_number": "415-924-1192",
+                "therapist_name": "Sorensen Phyllis",
+                "type": "Family Counselor"
+              }
+            ],
+            "slots": [
+              {
+                "exclusive_end": 51,
+                "slot": "therapist_name",
+                "start": 35
+              },
+              {
+                "exclusive_end": 66,
+                "slot": "city",
+                "start": 55
+              }
+            ]
+          }
+        ],
+        "speaker": "SYSTEM",
+        "utterance": "You could try the family counselor Sorensen Phyllis in Mill Valley."
+      },
+      {
+        "frames": [
+          {
+            "actions": [
+              {
+                "act": "REQUEST",
+                "canonical_values": [],
+                "slot": "phone_number",
+                "values": []
+              }
+            ],
+            "service": "Services_4",
+            "slots": [],
+            "state": {
+              "active_intent": "FindProvider",
+              "requested_slots": [
+                "phone_number"
+              ],
+              "slot_values": {
+                "city": [
+                  "Mill Valley"
+                ],
+                "type": [
+                  "Family Counselor"
+                ]
+              }
+            }
+          }
+        ],
+        "speaker": "USER",
+        "utterance": "What is their phone number?"
+      },
+      {
+        "frames": [
+          {
+            "actions": [
+              {
+                "act": "INFORM",
+                "canonical_values": [
+                  "415-924-1192"
+                ],
+                "slot": "phone_number",
+                "values": [
+                  "415-924-1192"
+                ]
+              }
+            ],
+            "service": "Services_4",
+            "slots": [
+              {
+                "exclusive_end": 32,
+                "slot": "phone_number",
+                "start": 20
+              }
+            ]
+          }
+        ],
+        "speaker": "SYSTEM",
+        "utterance": "Try calling them on 415-924-1192."
+      },
+      {
+        "frames": [
+          {
+            "actions": [
+              {
+                "act": "REQUEST_ALTS",
+                "canonical_values": [],
+                "slot": "",
+                "values": []
+              }
+            ],
+            "service": "Services_4",
+            "slots": [],
+            "state": {
+              "active_intent": "FindProvider",
+              "requested_slots": [],
+              "slot_values": {
+                "city": [
+                  "Mill Valley"
+                ],
+                "type": [
+                  "Family Counselor"
+                ]
+              }
+            }
+          }
+        ],
+        "speaker": "USER",
+        "utterance": "Do you have anyone else?"
+      },
+      {
+        "frames": [
+          {
+            "actions": [
+              {
+                "act": "NOTIFY_FAILURE",
+                "canonical_values": [],
+                "slot": "",
+                "values": []
+              },
+              {
+                "act": "REQ_MORE",
+                "canonical_values": [],
+                "slot": "",
+                "values": []
+              }
+            ],
+            "service": "Services_4",
+            "service_call": {
+              "method": "FindProvider",
+              "parameters": {
+                "city": "Mill Valley",
+                "type": "Family Counselor"
+              }
+            },
+            "service_results": [],
+            "slots": []
+          }
+        ],
+        "speaker": "SYSTEM",
+        "utterance": "Sorry, there is no one else matching your preferences. Could I be of further assistance?"
+      },
+      {
+        "frames": [
+          {
+            "actions": [
+              {
+                "act": "INFORM",
+                "canonical_values": [
+                  "Santa Rosa"
+                ],
+                "slot": "city",
+                "values": [
+                  "Santa Rosa"
+                ]
+              },
+              {
+                "act": "INFORM_INTENT",
+                "canonical_values": [
+                  "FindProvider"
+                ],
+                "slot": "intent",
+                "values": [
+                  "FindProvider"
+                ]
+              }
+            ],
+            "service": "Services_4",
+            "slots": [
+              {
+                "exclusive_end": 35,
+                "slot": "city",
+                "start": 25
+              }
+            ],
+            "state": {
+              "active_intent": "FindProvider",
+              "requested_slots": [],
+              "slot_values": {
+                "city": [
+                  "Santa Rosa"
+                ],
+                "type": [
+                  "Family Counselor"
+                ]
+              }
+            }
+          }
+        ],
+        "speaker": "USER",
+        "utterance": "Could you look again, in Santa Rosa?"
+      },
+      {
+        "frames": [
+          {
+            "actions": [
+              {
+                "act": "OFFER",
+                "canonical_values": [
+                  "Auer Patience"
+                ],
+                "slot": "therapist_name",
+                "values": [
+                  "Auer Patience"
+                ]
+              },
+              {
+                "act": "OFFER",
+                "canonical_values": [
+                  "Family Counselor"
+                ],
+                "slot": "type",
+                "values": [
+                  "Family Counselor"
+                ]
+              },
+              {
+                "act": "OFFER",
+                "canonical_values": [
+                  "Santa Rosa"
+                ],
+                "slot": "city",
+                "values": [
+                  "Santa Rosa"
+                ]
+              }
+            ],
+            "service": "Services_4",
+            "service_call": {
+              "method": "FindProvider",
+              "parameters": {
+                "city": "Santa Rosa",
+                "type": "Family Counselor"
+              }
+            },
+            "service_results": [
+              {
+                "address": "2455 Bennett Valley Road",
+                "city": "Santa Rosa",
+                "phone_number": "707-526-7604",
+                "therapist_name": "Auer Patience",
+                "type": "Family Counselor"
+              },
+              {
+                "address": "534 B Street",
+                "city": "Santa Rosa",
+                "phone_number": "707-696-6978",
+                "therapist_name": "Ayne Shore",
+                "type": "Family Counselor"
+              },
+              {
+                "address": "2455 Bennett Valley Rd # B300",
+                "city": "Santa Rosa",
+                "phone_number": "707-545-5846",
+                "therapist_name": "Bauman Judith",
+                "type": "Family Counselor"
+              },
+              {
+                "address": "2455 Bennett Valley Road",
+                "city": "Santa Rosa",
+                "phone_number": "707-578-8008",
+                "therapist_name": "Busse Cornelia",
+                "type": "Family Counselor"
+              },
+              {
+                "address": "1005 Cleveland Avenue",
+                "city": "Santa Rosa",
+                "phone_number": "707-544-0700",
+                "therapist_name": "Collen Randal",
+                "type": "Family Counselor"
+              },
+              {
+                "address": "131 Stony Circle",
+                "city": "Santa Rosa",
+                "phone_number": "707-577-7474",
+                "therapist_name": "Elordi Barbara",
+                "type": "Family Counselor"
+              },
+              {
+                "address": "534 B St",
+                "city": "Santa Rosa",
+                "phone_number": "707-776-0698",
+                "therapist_name": "Marriage Family Therapist",
+                "type": "Family Counselor"
+              },
+              {
+                "address": "534 B Street",
+                "city": "Santa Rosa",
+                "phone_number": "707-568-1601",
+                "therapist_name": "Pope Thomas",
+                "type": "Family Counselor"
+              }
+            ],
+            "slots": [
+              {
+                "exclusive_end": 28,
+                "slot": "therapist_name",
+                "start": 15
+              },
+              {
+                "exclusive_end": 69,
+                "slot": "city",
+                "start": 59
+              }
+            ]
+          }
+        ],
+        "speaker": "SYSTEM",
+        "utterance": "YOu could tray Auer Patience, who is a family counselor in Santa Rosa."
+      },
+      {
+        "frames": [
+          {
+            "actions": [
+              {
+                "act": "INFORM_INTENT",
+                "canonical_values": [
+                  "BookAppointment"
+                ],
+                "slot": "intent",
+                "values": [
+                  "BookAppointment"
+                ]
+              },
+              {
+                "act": "SELECT",
+                "canonical_values": [],
+                "slot": "",
+                "values": []
+              }
+            ],
+            "service": "Services_4",
+            "slots": [],
+            "state": {
+              "active_intent": "BookAppointment",
+              "requested_slots": [],
+              "slot_values": {
+                "city": [
+                  "Santa Rosa"
+                ],
+                "therapist_name": [
+                  "Auer Patience"
+                ],
+                "type": [
+                  "Family Counselor"
+                ]
+              }
+            }
+          }
+        ],
+        "speaker": "USER",
+        "utterance": "Yes, please book an appointment."
+      },
+      {
+        "frames": [
+          {
+            "actions": [
+              {
+                "act": "REQUEST",
+                "canonical_values": [],
+                "slot": "appointment_time",
+                "values": []
+              }
+            ],
+            "service": "Services_4",
+            "slots": []
+          }
+        ],
+        "speaker": "SYSTEM",
+        "utterance": "What time do you want the appointment?"
+      },
+      {
+        "frames": [
+          {
+            "actions": [
+              {
+                "act": "INFORM",
+                "canonical_values": [
+                  "12:15"
+                ],
+                "slot": "appointment_time",
+                "values": [
+                  "12:15"
+                ]
+              }
+            ],
+            "service": "Services_4",
+            "slots": [
+              {
+                "exclusive_end": 32,
+                "slot": "appointment_time",
+                "start": 27
+              }
+            ],
+            "state": {
+              "active_intent": "BookAppointment",
+              "requested_slots": [],
+              "slot_values": {
+                "appointment_time": [
+                  "12:15"
+                ],
+                "city": [
+                  "Santa Rosa"
+                ],
+                "therapist_name": [
+                  "Auer Patience"
+                ],
+                "type": [
+                  "Family Counselor"
+                ]
+              }
+            }
+          }
+        ],
+        "speaker": "USER",
+        "utterance": "The appointment will be at 12:15."
+      },
+      {
+        "frames": [
+          {
+            "actions": [
+              {
+                "act": "REQUEST",
+                "canonical_values": [],
+                "slot": "appointment_date",
+                "values": []
+              }
+            ],
+            "service": "Services_4",
+            "slots": []
+          }
+        ],
+        "speaker": "SYSTEM",
+        "utterance": "What date should I book the appointment for?"
+      },
+      {
+        "frames": [
+          {
+            "actions": [
+              {
+                "act": "INFORM",
+                "canonical_values": [
+                  "2019-03-01"
+                ],
+                "slot": "appointment_date",
+                "values": [
+                  "1st of March"
+                ]
+              }
+            ],
+            "service": "Services_4",
+            "slots": [
+              {
+                "exclusive_end": 36,
+                "slot": "appointment_date",
+                "start": 24
+              }
+            ],
+            "state": {
+              "active_intent": "BookAppointment",
+              "requested_slots": [],
+              "slot_values": {
+                "appointment_date": [
+                  "1st of March"
+                ],
+                "appointment_time": [
+                  "12:15"
+                ],
+                "city": [
+                  "Santa Rosa"
+                ],
+                "therapist_name": [
+                  "Auer Patience"
+                ],
+                "type": [
+                  "Family Counselor"
+                ]
+              }
+            }
+          }
+        ],
+        "speaker": "USER",
+        "utterance": "Make an appointment for 1st of March."
+      },
+      {
+        "frames": [
+          {
+            "actions": [
+              {
+                "act": "CONFIRM",
+                "canonical_values": [
+                  "Auer Patience"
+                ],
+                "slot": "therapist_name",
+                "values": [
+                  "Auer Patience"
+                ]
+              },
+              {
+                "act": "CONFIRM",
+                "canonical_values": [
+                  "12:15"
+                ],
+                "slot": "appointment_time",
+                "values": [
+                  "12:15 pm"
+                ]
+              },
+              {
+                "act": "CONFIRM",
+                "canonical_values": [
+                  "2019-03-01"
+                ],
+                "slot": "appointment_date",
+                "values": [
+                  "today"
+                ]
+              }
+            ],
+            "service": "Services_4",
+            "slots": [
+              {
+                "exclusive_end": 53,
+                "slot": "therapist_name",
+                "start": 40
+              },
+              {
+                "exclusive_end": 65,
+                "slot": "appointment_time",
+                "start": 57
+              },
+              {
+                "exclusive_end": 71,
+                "slot": "appointment_date",
+                "start": 66
+              }
+            ]
+          }
+        ],
+        "speaker": "SYSTEM",
+        "utterance": "Okay confirm that you want to book with Auer Patience at 12:15 pm today."
+      },
+      {
+        "frames": [
+          {
+            "actions": [
+              {
+                "act": "INFORM",
+                "canonical_values": [
+                  "15:30"
+                ],
+                "slot": "appointment_time",
+                "values": [
+                  "afternoon 3:30"
+                ]
+              },
+              {
+                "act": "NEGATE",
+                "canonical_values": [],
+                "slot": "",
+                "values": []
+              }
+            ],
+            "service": "Services_4",
+            "slots": [
+              {
+                "exclusive_end": 30,
+                "slot": "appointment_time",
+                "start": 16
+              }
+            ],
+            "state": {
+              "active_intent": "BookAppointment",
+              "requested_slots": [],
+              "slot_values": {
+                "appointment_date": [
+                  "1st of March",
+                  "today"
+                ],
+                "appointment_time": [
+                  "afternoon 3:30"
+                ],
+                "city": [
+                  "Santa Rosa"
+                ],
+                "therapist_name": [
+                  "Auer Patience"
+                ],
+                "type": [
+                  "Family Counselor"
+                ]
+              }
+            }
+          }
+        ],
+        "speaker": "USER",
+        "utterance": "No, it would be afternoon 3:30."
+      },
+      {
+        "frames": [
+          {
+            "actions": [
+              {
+                "act": "CONFIRM",
+                "canonical_values": [
+                  "15:30"
+                ],
+                "slot": "appointment_time",
+                "values": [
+                  "3:30 pm"
+                ]
+              },
+              {
+                "act": "CONFIRM",
+                "canonical_values": [
+                  "2019-03-01"
+                ],
+                "slot": "appointment_date",
+                "values": [
+                  "today"
+                ]
+              }
+            ],
+            "service": "Services_4",
+            "slots": [
+              {
+                "exclusive_end": 48,
+                "slot": "appointment_time",
+                "start": 41
+              },
+              {
+                "exclusive_end": 54,
+                "slot": "appointment_date",
+                "start": 49
+              }
+            ]
+          }
+        ],
+        "speaker": "SYSTEM",
+        "utterance": "Please confirm that you want to book for 3:30 pm today."
+      },
+      {
+        "frames": [
+          {
+            "actions": [
+              {
+                "act": "REQUEST",
+                "canonical_values": [],
+                "slot": "address",
+                "values": []
+              },
+              {
+                "act": "AFFIRM",
+                "canonical_values": [],
+                "slot": "",
+                "values": []
+              }
+            ],
+            "service": "Services_4",
+            "slots": [],
+            "state": {
+              "active_intent": "BookAppointment",
+              "requested_slots": [
+                "address"
+              ],
+              "slot_values": {
+                "appointment_date": [
+                  "1st of March",
+                  "today"
+                ],
+                "appointment_time": [
+                  "3:30 pm",
+                  "afternoon 3:30"
+                ],
+                "city": [
+                  "Santa Rosa"
+                ],
+                "therapist_name": [
+                  "Auer Patience"
+                ],
+                "type": [
+                  "Family Counselor"
+                ]
+              }
+            }
+          }
+        ],
+        "speaker": "USER",
+        "utterance": "Yes, that is perfect. What is the therapist's address?"
+      },
+      {
+        "frames": [
+          {
+            "actions": [
+              {
+                "act": "NOTIFY_FAILURE",
+                "canonical_values": [],
+                "slot": "",
+                "values": []
+              },
+              {
+                "act": "REQ_MORE",
+                "canonical_values": [],
+                "slot": "",
+                "values": []
+              }
+            ],
+            "service": "Services_4",
+            "service_call": {
+              "method": "BookAppointment",
+              "parameters": {
+                "appointment_date": "2019-03-01",
+                "appointment_time": "15:30",
+                "therapist_name": "Auer Patience"
+              }
+            },
+            "service_results": [],
+            "slots": []
+          }
+        ],
+        "speaker": "SYSTEM",
+        "utterance": "Sorry, something went wrong. I could not make that appointment. Could I help with something else?"
+      },
+      {
+        "frames": [
+          {
+            "actions": [
+              {
+                "act": "INFORM",
+                "canonical_values": [
+                  "2019-03-12"
+                ],
+                "slot": "appointment_date",
+                "values": [
+                  "the 12th"
+                ]
+              },
+              {
+                "act": "INFORM_INTENT",
+                "canonical_values": [
+                  "BookAppointment"
+                ],
+                "slot": "intent",
+                "values": [
+                  "BookAppointment"
+                ]
+              }
+            ],
+            "service": "Services_4",
+            "slots": [
+              {
+                "exclusive_end": 38,
+                "slot": "appointment_date",
+                "start": 30
+              }
+            ],
+            "state": {
+              "active_intent": "BookAppointment",
+              "requested_slots": [],
+              "slot_values": {
+                "appointment_date": [
+                  "the 12th"
+                ],
+                "appointment_time": [
+                  "3:30 pm",
+                  "afternoon 3:30"
+                ],
+                "city": [
+                  "Santa Rosa"
+                ],
+                "therapist_name": [
+                  "Auer Patience"
+                ],
+                "type": [
+                  "Family Counselor"
+                ]
+              }
+            }
+          }
+        ],
+        "speaker": "USER",
+        "utterance": "Please try that again but for the 12th."
+      },
+      {
+        "frames": [
+          {
+            "actions": [
+              {
+                "act": "CONFIRM",
+                "canonical_values": [
+                  "Auer Patience"
+                ],
+                "slot": "therapist_name",
+                "values": [
+                  "Auer Patience"
+                ]
+              },
+              {
+                "act": "CONFIRM",
+                "canonical_values": [
+                  "15:30"
+                ],
+                "slot": "appointment_time",
+                "values": [
+                  "3:30 pm"
+                ]
+              },
+              {
+                "act": "CONFIRM",
+                "canonical_values": [
+                  "2019-03-12"
+                ],
+                "slot": "appointment_date",
+                "values": [
+                  "March 12th"
+                ]
+              }
+            ],
+            "service": "Services_4",
+            "slots": [
+              {
+                "exclusive_end": 41,
+                "slot": "therapist_name",
+                "start": 28
+              },
+              {
+                "exclusive_end": 52,
+                "slot": "appointment_time",
+                "start": 45
+              },
+              {
+                "exclusive_end": 66,
+                "slot": "appointment_date",
+                "start": 56
+              }
+            ]
+          }
+        ],
+        "speaker": "SYSTEM",
+        "utterance": "Okay, you want to book with Auer Patience at 3:30 pm on March 12th, right?"
+      },
+      {
+        "frames": [
+          {
+            "actions": [
+              {
+                "act": "AFFIRM",
+                "canonical_values": [],
+                "slot": "",
+                "values": []
+              }
+            ],
+            "service": "Services_4",
+            "slots": [],
+            "state": {
+              "active_intent": "BookAppointment",
+              "requested_slots": [],
+              "slot_values": {
+                "appointment_date": [
+                  "March 12th",
+                  "the 12th"
+                ],
+                "appointment_time": [
+                  "3:30 pm",
+                  "afternoon 3:30"
+                ],
+                "city": [
+                  "Santa Rosa"
+                ],
+                "therapist_name": [
+                  "Auer Patience"
+                ],
+                "type": [
+                  "Family Counselor"
+                ]
+              }
+            }
+          }
+        ],
+        "speaker": "USER",
+        "utterance": "Yes, perfect."
+      },
+      {
+        "frames": [
+          {
+            "actions": [
+              {
+                "act": "NOTIFY_SUCCESS",
+                "canonical_values": [],
+                "slot": "",
+                "values": []
+              }
+            ],
+            "service": "Services_4",
+            "service_call": {
+              "method": "BookAppointment",
+              "parameters": {
+                "appointment_date": "2019-03-12",
+                "appointment_time": "15:30",
+                "therapist_name": "Auer Patience"
+              }
+            },
+            "service_results": [
+              {
+                "address": "2455 Bennett Valley Road",
+                "appointment_date": "2019-03-12",
+                "appointment_time": "16:00",
+                "phone_number": "707-526-7604",
+                "therapist_name": "Auer Patience"
+              }
+            ],
+            "slots": []
+          }
+        ],
+        "speaker": "SYSTEM",
+        "utterance": "Your appointment has been made and you will be receiving an email soon."
+      },
+      {
+        "frames": [
+          {
+            "actions": [
+              {
+                "act": "THANK_YOU",
+                "canonical_values": [],
+                "slot": "",
+                "values": []
+              }
+            ],
+            "service": "Services_4",
+            "slots": [],
+            "state": {
+              "active_intent": "BookAppointment",
+              "requested_slots": [],
+              "slot_values": {
+                "appointment_date": [
+                  "March 12th",
+                  "the 12th"
+                ],
+                "appointment_time": [
+                  "3:30 pm",
+                  "afternoon 3:30"
+                ],
+                "city": [
+                  "Santa Rosa"
+                ],
+                "therapist_name": [
+                  "Auer Patience"
+                ],
+                "type": [
+                  "Family Counselor"
+                ]
+              }
+            }
+          }
+        ],
+        "speaker": "USER",
+        "utterance": "Thank you. It is much appreciated."
+      },
+      {
+        "frames": [
+          {
+            "actions": [
+              {
+                "act": "REQ_MORE",
+                "canonical_values": [],
+                "slot": "",
+                "values": []
+              }
+            ],
+            "service": "Services_4",
+            "slots": []
+          }
+        ],
+        "speaker": "SYSTEM",
+        "utterance": "Anything else you need help with?"
+      },
+      {
+        "frames": [
+          {
+            "actions": [
+              {
+                "act": "NEGATE",
+                "canonical_values": [],
+                "slot": "",
+                "values": []
+              },
+              {
+                "act": "THANK_YOU",
+                "canonical_values": [],
+                "slot": "",
+                "values": []
+              }
+            ],
+            "service": "Services_4",
+            "slots": [],
+            "state": {
+              "active_intent": "NONE",
+              "requested_slots": [],
+              "slot_values": {
+                "appointment_date": [
+                  "March 12th",
+                  "the 12th"
+                ],
+                "appointment_time": [
+                  "3:30 pm",
+                  "afternoon 3:30"
+                ],
+                "city": [
+                  "Santa Rosa"
+                ],
+                "therapist_name": [
+                  "Auer Patience"
+                ],
+                "type": [
+                  "Family Counselor"
+                ]
+              }
+            }
+          }
+        ],
+        "speaker": "USER",
+        "utterance": "No, that is all. Thank you. I appreciate it."
+      },
+      {
+        "frames": [
+          {
+            "actions": [
+              {
+                "act": "GOODBYE",
+                "canonical_values": [],
+                "slot": "",
+                "values": []
+              }
+            ],
+            "service": "Services_4",
+            "slots": []
+          }
+        ],
+        "speaker": "SYSTEM",
+        "utterance": "Glad I could help!"
+      }
+    ]
+  },
+  {
     "dialogue_id": "11_00000",
     "services": [
       "Events_2"
@@ -6513,7 +9388,8 @@
       }
     ]
   },
-  {    "dialogue_id": "27_00076",
+  {
+    "dialogue_id": "27_00076",
     "services": [
       "Buses_2"
     ],
