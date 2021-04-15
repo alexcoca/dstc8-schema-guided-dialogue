@@ -1,5 +1,9 @@
 """
 This module contains variables that are relevant for SGD corpus analysis.
+It should only be used to load metadata so that is is available to other
+external modules and should not be imported from by other modules in this
+repository (to avoid circular imports when external modules use the library).
+Instead, modules should load the metadata file directly.
 """
 
 from typing import Dict, List, Set
