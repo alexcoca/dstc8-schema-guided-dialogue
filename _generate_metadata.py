@@ -1,4 +1,5 @@
 from collections import defaultdict
+from dialogue_utils import get_dialogue_intents
 from typing import Dict, Set, Tuple, List, Optional, Callable
 from typing_extensions import Literal
 from utils import (
@@ -12,6 +13,7 @@ from utils import (
     alphabetical_sort_key,
     dial_files_sort_key,
 )
+
 
 import collections
 import json
@@ -111,37 +113,6 @@ def get_intents_by_type() -> Dict[str, List[str]]:
     }
 
     return all_intents
-
-
-def get_dialogue_intents(dialogue: Dict, exclude_none: bool = True) -> Set[str]:
-    """Returns the list of intents in a dialogue.
-
-    Parameters
-    ----------
-    dialogue
-        Nested dictionary containing dialogue and annotations.
-    exclude_none
-        If True, the `NONE` intent is not included in the intents set.
-
-    Returns
-    -------
-    intents
-        A set of intents contained in the dialogue.
-    """
-
-    intents = set()
-    for turn in dialogue_iterator(dialogue, user=True, system=False):
-        for frame in turn['frames']:
-            intent = frame['state']['active_intent']
-            if exclude_none:
-                if intent == 'NONE':
-                    continue
-                else:
-                    intents.add(intent)
-            else:
-                intents.add(intent)
-
-    return intents
 
 
 def _get_requestables(dialogue: dict) -> Set[str]:
