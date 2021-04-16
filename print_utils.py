@@ -180,7 +180,7 @@ def print_dialogue_outline(dialogue: Dict, text: bool = False):
 
 
 if __name__ == '__main__':
-    file = '../train/dialogues_001.json'
+    file = 'train/dialogues_001.json'
 
     with open(file, 'r') as f:
         all_dialogues = json.load(f)
