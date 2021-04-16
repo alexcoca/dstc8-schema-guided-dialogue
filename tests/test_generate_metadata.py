@@ -4,7 +4,7 @@ from _generate_metadata import (
     filter_by_intent_type,
     get_entity_slots_map
 )
-from test_utils import count_intents, get_random_split
+from .test_utils import count_intents, get_random_split
 from utils import random_sampler, dialogue_iterator
 
 import metadata
