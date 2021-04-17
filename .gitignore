@@ -1,2 +1,4 @@
 # PyCharm
 .idea/
+# Python byte-code files
+__pycache__/
