@@ -1,4 +1,4 @@
-from utils import schema_iterator
+from data_utils import schema_iterator
 
 import random
 

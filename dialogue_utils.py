@@ -3,7 +3,7 @@ data from dialogues and training splits. Use in conjunction with the
 information in the `metadata` module.
 """
 from typing import Dict, Set
-from utils import dialogue_iterator
+from data_utils import dialogue_iterator
 
 import json
 

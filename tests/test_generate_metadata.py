@@ -5,7 +5,7 @@ from _generate_metadata import (
     get_entity_slots_map
 )
 from .test_utils import count_intents, get_random_split
-from utils import random_sampler, dialogue_iterator
+from data_utils import random_sampler, dialogue_iterator
 
 import metadata
 import pytest
