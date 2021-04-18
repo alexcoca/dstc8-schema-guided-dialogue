@@ -1,8 +1,8 @@
 from collections import defaultdict
-from dialogue_utils import get_dialogue_intents
+from .dialogue_utils import get_dialogue_intents
 from typing import Dict, Set, Tuple, List, Optional, Callable
 from typing_extensions import Literal
-from data_utils import (
+from .data_utils import (
     get_filenames,
     corpus_iterator,
     schema_iterator,
@@ -608,4 +608,3 @@ if __name__ == '__main__':
 
     with open('metadata.json', 'w') as f:
         json.dump(metadata, f, sort_keys=True, indent=4)
-    print("")

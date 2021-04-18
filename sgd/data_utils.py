@@ -3,19 +3,25 @@ be used for sorting.
 """
 
 from collections import defaultdict
+from pathlib import Path
 from typing import Tuple, List, Dict, Optional, Set
 from typing_extensions import Literal
 
 import glob
 import itertools
 import json
-import os
 
 import numpy as np
 
+
+def get_project_root() -> Path:
+    return Path(__file__).parent.parent
+
+
+root = get_project_root()
+
 _SPLIT_NAMES = ['train', 'test', 'dev']
-directory = os.path.dirname(__file__)
-_SCHEMA_PATHS = {split: f"{directory}/{split}/schema.json" for split in _SPLIT_NAMES}
+_SCHEMA_PATHS = {split: f"{root}/{split}/schema.json" for split in _SPLIT_NAMES}
 
 
 def reconstruct_filename(dial_id: str) -> str:
@@ -41,7 +47,7 @@ def get_file_map(dialogue_ids: List, split: Literal['train', 'test', 'dev']) -> 
     file_map = defaultdict(list)
 
     for id in dialogue_ids:
-        file_map[f"{directory}/{split}/{reconstruct_filename(id)}"].append(id)
+        file_map[f"{root}/{split}/{reconstruct_filename(id)}"].append(id)
 
     return file_map
 
@@ -49,7 +55,7 @@ def get_file_map(dialogue_ids: List, split: Literal['train', 'test', 'dev']) -> 
 def get_filenames(split: Literal['train', 'test', 'dev']) -> List[str]:
     """Returns a list of filenames in a given split.
     """
-    return glob.glob(f"{directory}/{split}/dialogues*.json")
+    return glob.glob(f"{root}/{split}/dialogues*.json")
 
 
 def file_iterator(filename: str, return_only: Optional[Set[str]] = None) -> Tuple[str, dict]:

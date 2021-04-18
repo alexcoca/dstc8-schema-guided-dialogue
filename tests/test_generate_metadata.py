@@ -1,13 +1,13 @@
-from _generate_metadata import (
+from sgd._generate_metadata import (
     get_intents_by_type,
     get_schema_intents,
     filter_by_intent_type,
     get_entity_slots_map
 )
 from .test_utils import count_intents, get_random_split
-from data_utils import random_sampler, dialogue_iterator
+from sgd.data_utils import random_sampler, dialogue_iterator
 
-import metadata
+from sgd import metadata
 import pytest
 import random
 

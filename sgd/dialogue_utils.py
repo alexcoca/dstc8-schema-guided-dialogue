@@ -3,7 +3,7 @@ data from dialogues and training splits. Use in conjunction with the
 information in the `metadata` module.
 """
 from typing import Dict, Set
-from data_utils import dialogue_iterator
+from .data_utils import dialogue_iterator
 
 import json
 
@@ -61,4 +61,3 @@ def offers_entities(dialogue: dict) -> bool:
         metadata = json.load(f)
     search_intents = set(metadata['SEARCH_INTENTS'])
     return any(intent in search_intents for intent in intents)
-
