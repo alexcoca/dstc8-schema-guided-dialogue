@@ -6,7 +6,7 @@ information in the `metadata` module.
 from typing import Dict, Set
 from .data_utils import dialogue_iterator
 
-import metadata
+import sgd_utils.metadata as metadata
 
 
 def has_requestables(dialogue: dict) -> bool:
