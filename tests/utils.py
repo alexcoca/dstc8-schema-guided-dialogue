@@ -12,7 +12,6 @@ def count_intents():
         for service in schema_iterator(split):
             for intent_dict in service['intents']:
                 intents.add(intent_dict['name'])
-
     return len(intents)
 
 

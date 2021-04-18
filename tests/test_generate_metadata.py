@@ -4,7 +4,7 @@ from sgd._generate_metadata import (
     filter_by_intent_type,
     get_entity_slots_map
 )
-from .test_utils import count_intents, get_random_split
+from .utils import count_intents, get_random_split
 from sgd.data_utils import random_sampler, dialogue_iterator
 
 from sgd import metadata
