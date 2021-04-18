@@ -8,8 +8,6 @@ def readme():
 
 INSTALL_REQUIRES =[
           'numpy>=1.20.2, <2.0.0',
-          'python-Levenstein>=0.12.2, <1.0.0',
-          'fuzzywuzzy>=0.18.0, <1.0.0',
           'typing-extensions>=3.7.4.3',
 ]
 
