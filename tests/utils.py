@@ -1,4 +1,4 @@
-from sgd.data_utils import schema_iterator
+from sgd_utils.data_utils import schema_iterator
 
 import random
 

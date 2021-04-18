@@ -14,7 +14,7 @@ INSTALL_REQUIRES = [
 DESCRIPTION = 'Clone of https://github.com/google-research-datasets/dstc8-schema-guided-dialogue with additional ' \
               'data analysis utilities.'
 
-setup(name='sgd',
+setup(name='sgd_utils',
       author='Alexandru Coca',
       author_email='ac2123@cam.ac.uk',
       version='0.1',
